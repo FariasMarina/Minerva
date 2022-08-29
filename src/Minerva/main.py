@@ -2,9 +2,12 @@ import azure.cognitiveservices.speech as speechsdk
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 from datetime import datetime
 import speech_recognition as sr
- 
+import webbrowser
 
-
+def pesquisar(comando):
+    print(comando)
+    webbrowser.open(f'http://www.google.com/search?client=firefox-b-lm&q={comando}')
+    talk(f'Encontrei esses resultados no Google para {comando}.')
 
 def exemplo(text):
     print(text)
@@ -12,8 +15,8 @@ def exemplo(text):
 
 
 def talk(text):
-    speech_config = speechsdk.SpeechConfig(subscription="", region="brazilsouth")
-    #In this sample we are using the default speaker 
+    speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a", region="brazilsouth")
+    #In this sample we are using the default speaker  
     #Learn how to customize your speaker using SSML in Azure Cognitive Services Speech documentation
     
     speech_config.speech_synthesis_language = 'pt-br'
@@ -25,7 +28,7 @@ def recebendo_audio():
     rec = sr.Recognizer()
     with sr.Microphone(device_index=1) as mic:
         rec.adjust_for_ambient_noise(mic)
-        print("Fale algo")
+        print("Estou te ouvindo...")
         audio = rec.listen(mic)
         try:
             frase = rec.recognize_google(audio, language="pt-BR")
@@ -34,11 +37,10 @@ def recebendo_audio():
         return frase.lower()
 
 
-
 def run_minerva():
     comando = recebendo_audio()#.replace(" vírgula ", ", ")
 
-    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora}
+    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora, 'que dia é hoje':diga_data}
 
     for i in lista_comandos.keys():
         if i in comando:
@@ -46,10 +48,12 @@ def run_minerva():
     else:
         print(comando)
 
+
 def diga_hora(comando):
     hora = datetime.now().strftime('%H:%M:%S')
     print(comando)
     talk(hora)
+
 
 def diga_data(comando):
     data = datetime.now().strftime('%Y-%m-%d')
@@ -57,11 +61,14 @@ def diga_data(comando):
     talk(data)
 
 while True:
-    try:
+   try:
         run_minerva()
-    except:
-        print("ERRO")
-    
+   except Exception as e:
+        print(f"ERRO, {e}")
+
+
+
+#PRECISA INSTALAR PYAUDIO    
 
 #------------------------------------------------------------
 #PARA RECONHECER MICROFONES, USAR: 
