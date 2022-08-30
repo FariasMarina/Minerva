@@ -23,7 +23,7 @@ def exemplo(text):
 
 
 def talk(text):
-    speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a", region="brazilsouth")
+    speech_config = speechsdk.SpeechConfig(subscription="x", region="brazilsouth")
     #In this sample we are using the default speaker  
     #Learn how to customize your speaker using SSML in Azure Cognitive Services Speech documentation
     
