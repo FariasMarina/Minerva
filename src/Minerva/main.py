@@ -4,10 +4,18 @@ from datetime import datetime
 import speech_recognition as sr
 import webbrowser
 
-def pesquisar(comando):
+#TODO - Mudar para Mozilla caso não haja Chrome
+#Abrir a primeira pesquisa no Youtube
+
+def pesquisar_google(comando):
     print(comando)
     webbrowser.open(f'http://www.google.com/search?client=firefox-b-lm&q={comando}')
-    talk(f'Encontrei esses resultados no Google para {comando}.')
+    talk(f'Pesquisei {comando} no Google.')
+
+def pesquisar_youtube(comando):
+    print(comando)
+    webbrowser.open(f'https://www.youtube.com/results?search_query={comando}')
+    talk(f'Pesquisei {comando} no Youtube.')
 
 def exemplo(text):
     print(text)
