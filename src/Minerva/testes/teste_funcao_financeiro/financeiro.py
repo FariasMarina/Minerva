@@ -1,25 +1,51 @@
 import sqlite3
 import datetime
+from src.Minerva.testes.teste_geral import receber_variaveis
 
-banco = sqlite3.connect('primeiro_banco.db')
+banco = sqlite3.connect(r'C:\Users\entra21\PycharmProjects\Minerva\src\Minerva\testes\teste_funcao_financeiro\bancoteste.db')
 cursor = banco.cursor()
+
+#Cria o banco
+def criar_banco():
+    cursor.execute("CREATE TABLE IF NOT EXISTS bancoteste("
+                   "ID integer primary key AUTOINCREMENT,"
+                   "data text, "
+                   "descricao text, "
+                   "valor real, "
+                   "categoria text,"
+                   "FOREIGN KEY (categoria) REFERENCES bancoteste (descricao))")
+criar_banco()
 
 # adiciona novo dado podendo escolher a data
 def adicionar_com_data(data, descricao, valor, categoria):
-   cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (data, descricao, valor, categoria))  # inserir valores
-   banco.commit()
-   return print('adicionado')
+
+    descricao = receber_variaveis("Qual o nome da conta?")
+    valor = receber_variaveis("Qual o valor da conta?")
+    categoria = receber_variaveis("Esse conta é fixa ou variavel?")
+
+    cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (data, descricao, valor, categoria))  # inserir valores
+    banco.commit()
+    return print('adicionado')
 # adicionar_com_data('2022-08-10', 'NetFlix', 1829.21, 'variável')
 
 
 # adiciona novo dado com a data do computador
-def adicionar(descricao, valor, categoria):
-    data = datetime.datetime.now()
-    dataauto = str(data.date())
-    cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (dataauto, descricao, valor, categoria))
-    banco.commit()
-    return print('adicionado')
+def adicionar():
+    data = receber_variaveis("Qual a data?")
+    if data == "hoje":
+
+        descricao = receber_variaveis("Qual o nome da conta?")
+        valor = receber_variaveis("Qual o valor da conta?")
+        categoria = receber_variaveis("Esse conta é fixa ou variavel?")
+        data = datetime.datetime.now()
+        dataauto = str(data.date())
+        cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (dataauto, descricao, valor, categoria))
+        banco.commit()
+        return print('adicionado')
+    else:
+        adicionar_com_data(data)
 # adicionar('agua', 156, 'fixo')
+
 
 
 def mudar_data(id, ano, mes, dia):
@@ -112,7 +138,7 @@ def filtrar_categoria(cat):
 
 
 # mostra o total das contas do mês (dia 01 ao 31)
-def soma_total_mes():
+def soma_total_mes(*args):
     data = datetime.datetime.now()
     ano = str(data.date())[:4]
     mes = str(data.date())[5:7]
@@ -123,7 +149,7 @@ def soma_total_mes():
     for i in res:
         list.append(float(i[3]))
     soma = sum(list)
-    return print(f'o total do mês é {soma}')
+    return f'o total do mês é {soma}'
 # soma_total_mes()
 
 
