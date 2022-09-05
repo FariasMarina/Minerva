@@ -20,8 +20,8 @@ def pesquisar_youtube(comando):
     talk(f'Pesquisei {comando} no Youtube.')
     
 def se_apresente(comando):
-print(comando)
-talk(f'Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Meus hobbie é contar piada, falar e dar rolê com a Ziri. Você pode adicionar comandos facilmente acessando meu repositório no Github.')
+    print(comando)
+    talk(f'Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Meus hobbie é contar piada, falar e dar rolê com a Ziri. Você pode adicionar comandos facilmente acessando meu repositório no Github.')
 
 def exemplo(text):
     print(text)
