@@ -45,8 +45,7 @@ def run_minerva():
     lista_comandos = {'fale': talk,
 					  'teste': exemplo,
 					  'pesquise': pesquisar_google,
-					  'apresenta': apresentar,
-					  'quanto': ana}
+					  'apresenta': apresentar}
 
     for i in lista_comandos.keys():
         if i in comando:

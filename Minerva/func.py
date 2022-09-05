@@ -22,5 +22,4 @@ def exemplo(text):
 def apresentar(text):
     return "Olá me chamo Minerva, sou sua assitente virtual open source e estou a sua disposição"
 
-def ana(text):
-	return "PRA CARALHO MULEQUE, ANA GOSTOSA DE MAIS TU É DOIDO "
+
