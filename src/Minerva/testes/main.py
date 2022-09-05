@@ -63,7 +63,7 @@ def run_minerva():
 
     # comando = input("Digite seu comando: ")
 
-    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora, 'que dia é hoje':diga_data, 'mostre as contas totais do mês': financeiro.soma_total_mes, 'adicionar conta':financeiro.adicionar()}
+    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora, 'que dia é hoje':diga_data, 'mostre as contas totais do mês': financeiro.soma_total_mes, 'adicionar conta':financeiro.adicionar(), 'se apresente':seapresente()}
 
     for i in lista_comandos.keys():
         if i in comando:
