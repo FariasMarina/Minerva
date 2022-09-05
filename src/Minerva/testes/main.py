@@ -21,12 +21,8 @@ def pesquisar_youtube(comando):
     
 def se_apresente(comando):
     print(comando)
-    talk(f'Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Meus hobbie é contar piada, falar e dar rolê com a Ziri. Você pode adicionar comandos facilmente acessando meu repositório no Github.')
-
-def exemplo(text):
-    print(text)
-    talk(text)
-
+    talk(f'Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Meu hobbie é contar piada, '
+         f'falar e dar rolê com a Ziri. Você pode adicionar comandos facilmente acessando meu repositório no Github.')
 
 def talk(text):
     # speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a", region="brazilsouth")
@@ -63,7 +59,9 @@ def run_minerva():
 
     # comando = input("Digite seu comando: ")
 
-    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora, 'que dia é hoje':diga_data, 'mostre as contas totais do mês': financeiro.soma_total_mes, 'adicionar conta':financeiro.adicionar(), 'se apresente':seapresente()}
+    lista_comandos = {'fale':talk, 'fala':talk, 'que horas são':diga_hora, 'que dia é hoje':diga_data,
+                      'mostre as contas totais do mês': financeiro.soma_total_mes,
+                      'adicionar conta':financeiro.adicionar(), 'se apresente':seapresente()}
 
     for i in lista_comandos.keys():
         if i in comando:
