@@ -1,11 +1,11 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from src.Minerva.testes.teste_geral import run_minerva
+from . import teste_geral
 
 class Tela(BoxLayout):
     def zerar(self):
 
-        run_minerva()
+        teste_geral.run_minerva()
 
 
 class kivy_interface(App):
