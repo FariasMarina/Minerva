@@ -15,7 +15,11 @@ Fique livre para adicionar comandos e usar como quiser.
 <code>$ pip install -r requirements.txt</code>
 
 <h3>Como contatar os devs</h3>
-https
+<h4>Você pode contatar o devs para tirar dúvidas pelo Linkedin:</h4>
+https://www.linkedin.com/in/mariana-possamai-bb899a214<br>
+https://www.linkedin.com/in/marinafariastech/<br>
+https://www.linkedin.com/in/joilson-julkoski-souza-2116581a8/<br>
+https://www.linkedin.com/in/henrique-samuel-de-andrade-2165a8244/<br>
 
 <br>
 
