@@ -14,5 +14,5 @@ lista_frases = ['É em meio a dificuldade que se encontra a oportunidade',
 'Cada dificuldade ultrapassada te faz mais forte',
 'Desistir não deve ser considerado, mesmo que as coisas não sejam fáceis']
 
-for i in range(1):
-    print(random.choice(lista_frases))
+
+print(random.choice(lista_frases))
