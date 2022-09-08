@@ -2,7 +2,7 @@ import sqlite3
 import datetime
 from src.Minerva.testes.teste_geral import receber_variaveis
 
-banco = sqlite3.connect(r'C:\Users\entra21\PycharmProjects\Minerva\src\Minerva\testes\teste_funcao_financeiro\bancoteste.db')
+banco = sqlite3.connect(r'/testes/src\Minerva\testes\teste_funcao_financeiro\bancoteste.db')
 cursor = banco.cursor()
 
 #Cria o banco

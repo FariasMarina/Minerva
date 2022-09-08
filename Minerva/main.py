@@ -50,13 +50,18 @@ def run_minerva():
                       #TODO: testar comandos com o reconhecimento de voz
 					  #TODO: editar contas
 					  'deletar conta': financeiro.deletar,
-                      'total de gastos': financeiro.soma_total_mes 
+                      'total de gastos': financeiro.soma_total_mes,
+                      'some': calculadora,
+                      'divida': calculadora,
+                      'multiplique': calculadora,
+                      'calcule': calculadora,
 }
 
     for i in lista_comandos.keys():
         if i in comando:
             resposta = lista_comandos[i]((comando.replace(i+" ", "")))
             talk(resposta)
+            break
 
 while True:
 	run_minerva()
