@@ -1,6 +1,5 @@
 # Minerva
 
-<strong>Olá, bem vindo(a) ao repositório da Minerva!</strong>
 
 <img src="Minerva.png">
 <h3>O que é?</h3>
