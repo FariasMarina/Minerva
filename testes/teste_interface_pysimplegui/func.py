@@ -36,16 +36,31 @@ def frases(text):
 
 
 def calculadora(text):
-    print(len(text.split()))
+    print(text)
     for _ in range(len(text.split())):
-        print("A")
         if "mais" in text:
-            a = text.replace("mais", "+")
+            text = text.replace("mais", "+")
         if "vezes" in text:
-            a = text.replace("vezes", "*")
+            text = text.replace("vezes", "*")
         if "dividido" in text:
-            a = text.replace("dividido", "/")
+            text = text.replace("dividido", "/")
         if "menos" in text:
-            a = text.replace("menos", "-")
-    print(eval(a))
-    return eval(a)
+            text = text.replace("menos", "-")
+    text = f"O resultado é {str(eval(text))}"
+    print(text)
+    return text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

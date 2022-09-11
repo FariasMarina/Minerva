@@ -4,6 +4,9 @@ from PySimpleGUI import PySimpleGUI as sg
 import azure.cognitiveservices.speech as speechsdk
 import speech_recognition as sr
 
+from datetime import datetime
+#import emoji
+
 from func import *
 # import financeiro
 
@@ -18,8 +21,10 @@ def talk(text):
     audio_config = AudioOutputConfig(use_default_speaker=True)
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, 
 											  audio_config=audio_config)
+
     synthesizer.speak_text_async(text)
 
+        
     #synthesize_to_speaker()
 
 def receber_variaveis(text):
@@ -27,24 +32,31 @@ def receber_variaveis(text):
     valor = recebendo_audio()
     return valor
 
+
 def recebendo_audio():
-    #rec = sr.Recognizer()
-    #with sr.Microphone(device_index=18) as mic:
-    #    rec.adjust_for_ambient_noise(mic)
-    #    print("Estou te ouvindo...")
-    #    audio = rec.listen(mic)
-    #    try:
-    #        frase = rec.recognize_google(audio, language="pt-BR")
-    #    except:
-    #        print("Erro no recebimento de áudio")
-    #    return frase.lower()
-	return input("Digite seu comando: ")
+    a = datetime.now() 
+    rec = sr.Recognizer()
+    c = datetime.now() 
+    with sr.Microphone() as mic:
+        rec.adjust_for_ambient_noise(mic)
+        print("Estou te ouvindo...")
+        audio = rec.listen(mic)
+        try:
+            frase = rec.recognize_google(audio, language="pt-BR")
+        except:
+            print("Erro no recebimento de áudio")
+        b = datetime.now()
+        print(a, c ,b)
+        return frase.lower()
 
-def run_minerva():
 
-    comando = recebendo_audio()
-
-    lista_comandos = {'fale': fale,
+def run_minerva(microfone=False, receber=""):
+	
+	if microfone == True:
+		comando = recebendo_audio()
+	else:
+		comando = receber
+	lista_comandos = {'fale': fale,
 					  'pesquise': pesquisar_google,
 					  'apresenta': apresentar,
 					  'piada': piadas,
@@ -59,32 +71,66 @@ def run_minerva():
                       'calcule': calculadora,
 }
 
-    for i in lista_comandos.keys():
-        if i in comando:
-            resposta = lista_comandos[i]((comando.replace(i+" ", "")))
-            talk(resposta)
-            break
+	for i in lista_comandos.keys():
+		if i in comando:
+			resposta = lista_comandos[i]((comando.replace(i+" ", "")))
+			talk(resposta)
+			return resposta
+			break
+	else:
+		talk('Desculpe, comando não encontrado')
 
+font = ("Arial", 50)
 
-sg.theme('DarkAmber')
+sg.theme('DarkPurple')
 layout = [
-    [sg.Text('teste', key='b'), sg.Input(key='TesteMinerva', font=20)],
-    [sg.Button('Teste',font=20, key="a")]
+    [sg.Button("🎙️" ,font=font, key="microfone", size = (12, 1))],
+    [sg.Input(key='comando', font=20)],
+    [sg.Button(font=60, key="enter", bind_return_key=True, visible=False)],
+	[sg.Text("", key="-OUTPUT-")]
 ]
 
 
+janela = sg.Window('Minerva', layout, element_justification='c')
 
-janela = sg.Window('TelaDeTeste', layout)
-#
 while True:
     eventos, valores = janela.read()
 
     if eventos == sg.WINDOW_CLOSED:
         break
     print(eventos)
-    if eventos == 'a':
-        #TODO: fazer chamar a run minerva com o comando que esta digitado
-        print("a")
-        janela['b'].Update(valores['TesteMinerva'] )
+    print(valores)
+	
+    if eventos == 'microfone':
+        run_minerva(microfone=True)
+    elif eventos == 'enter':
+        janela["-OUTPUT-"].Update("")
+        janela["comando"].Update("")
+        janela["-OUTPUT-"].Update(run_minerva(receber=valores['comando']))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
