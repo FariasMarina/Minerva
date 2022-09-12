@@ -21,7 +21,7 @@ def fale(text):
 
 def apresentar(text):
 	# TODO: Colar o texto que esta la nos testes
-    return "Olá me chamo Minerva, sou sua assitente virtual open source e estou a sua disposição"
+    return "Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Meus hobbie é contar piada, falar e dar rolê com a Ziri. Você pode adicionar comandos facilmente acessando meu repositório no Github."
 	
 
 def piadas(text):
