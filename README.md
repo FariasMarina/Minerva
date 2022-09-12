@@ -19,7 +19,7 @@ https://www.linkedin.com/in/henrique-samuel-de-andrade-2165a8244/<br>
 <br>
 
 <hr>
-O projeto está em andamento, sendo realizado na maior parte em sala de aula.<br>
+O projeto está em andamento, assim como seu READ.me, sendo realizado na maior parte em sala de aula.<br>
 Minerva is an Open Souce Virtual Assistant made in Python.
 
 <hr>
