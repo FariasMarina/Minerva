@@ -23,7 +23,7 @@ def adicionar_nota(nome, nota):
     return print('feito')
 
 
-def mostrar_nota(dia):
+def mostrar_nota_dia(dia):
     cursor.execute(f"SELECT notas FROM Notas WHERE data='{dia}'")
     res = cursor.fetchall()
     for i in res:
@@ -32,7 +32,16 @@ def mostrar_nota(dia):
         print(texto)
 
 
-def mostrar_notas():
+def mostrar_nota_nome(nome):
+    cursor.execute(f"SELECT notas FROM Notas WHERE nome='{nome}'")
+    res = cursor.fetchall()
+    for i in res:
+        tex = str(i)
+        texto = tex.replace('(', '').replace(')', '').replace(',', '')
+        print(texto)
+
+
+def mostrar_todas_notas():
     cursor.execute(f"SELECT notas FROM Notas")
     res = cursor.fetchall()
     for i in res:
@@ -61,11 +70,11 @@ def ler_Lembrete():
 
 # criar_banco()
 # adicionar_nota('dog', 'levar dog para passear')
-# mostrar_nota('2022-09-12')
-# mostrar_notas()
+# mostrar_nota_dia('2022-09-12')
+# mostrar_nota_nome('dog')
+# mostrar_todas_notas()
 # adicionar_lembrete('2022-09-13', 'remédio', 'tomar remédio')
-# ler_Lembrete()
-
+# ler_Lembrete() #lê somente os do dia
 
 
 
