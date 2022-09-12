@@ -55,20 +55,15 @@ def recebendo_audio():
 
 
 def run_minerva():
-    #comando = recebendo_audio()
+    comando = recebendo_audio()#.replace(" vírgula ", ", ")
 
-    comando = input("Digite seu comando: ")
-
-    lista_comandos = {'fale':talk}
+    lista_comandos = open(comandos)
 
     for i in lista_comandos.keys():
         if i in comando:
-            a = lista_comandos[i]((comando.replace(i+" ", "")))
-            talk(a)
+            lista_comandos[i]((comando.replace(i+" ", "")))
     else:
-        talk(comando)
-
-print(run_minerva())
+        print(comando)
 
 
 
