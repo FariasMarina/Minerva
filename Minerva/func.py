@@ -1,5 +1,6 @@
 import webbrowser
 import random
+from datetime import datetime
 
 
 
@@ -49,3 +50,14 @@ def calculadora(text):
             a = text.replace("menos", "-")
     print(eval(a))
     return eval(a)
+
+def diga_hora(comando):
+    hora = datetime.now().strftime('%H:%M:%S')
+    print(comando)
+    talk(hora)
+
+
+def diga_data(comando):
+    data = datetime.now().strftime('%Y-%m-%d')
+    print(comando)
+    talk(data)
