@@ -1,9 +1,79 @@
-import sqlite3
+import sqlite3 as sqlite3
 import datetime
-from src.Minerva.testes.teste_geral import receber_variaveis
 
-banco = sqlite3.connect(r'/testes/src\Minerva\testes\teste_funcao_financeiro\bancoteste.db')
+banco = sqlite3.connect(r'bancoteste.db')
 cursor = banco.cursor()
+
+
+
+#=== JA IMPLEMENTADAS ===
+
+
+
+# adiciona novo dado com a data do computador
+def adicionar(text):
+    from main import receber_variaveis
+    data = receber_variaveis("Qual a data?")
+    if data == "hoje":
+
+        descricao = receber_variaveis("Qual o nome da conta?")
+        valor = receber_variaveis("Qual o valor da conta?")
+        categoria = receber_variaveis("Esse conta é fixa ou variavel?")
+        data = datetime.datetime.now()
+        dataauto = str(data.date())
+        cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (dataauto, descricao, valor, categoria))
+        banco.commit()
+        return 'adicionado'
+    else:
+        adicionar_com_data(data)
+# adicionar('agua', 156, 'fixo')
+
+
+# adiciona novo dado podendo escolher a data
+def adicionar_com_data(data):
+    from main import receber_variaveis
+    descricao = receber_variaveis("Qual o nome da conta?")
+    valor = receber_variaveis("Qual o valor da conta?")
+    categoria = receber_variaveis("Esse conta é fixa ou variavel?")
+
+    cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (data, descricao, valor, categoria))  # inserir valores
+    banco.commit()
+    return 'adicionado'
+# adicionar_com_data('2022-08-10', 'NetFlix', 1829.21, 'variável')
+
+
+
+def deletar(text):
+   from	main import receber_variaveis
+   id = receber_variaveis('Qual o numero da conta?')
+   cursor.execute(f"DELETE FROM bancoteste WHERE id='{id}'")  # deletar dado
+   banco.commit()
+   return 'deletado'
+# deletar('17')
+
+
+# mostra o total das contas do mês (dia 01 ao 31)
+def soma_total_mes(*args):
+    data = datetime.datetime.now()
+    ano = str(data.date())[:4]
+    mes = str(data.date())[5:7]
+    mes2 = int(mes)+1
+    cursor.execute(f"SELECT * FROM bancoteste WHERE data BETWEEN '{ano}-{mes}-01' AND '{ano}-{mes2}-31'")
+    res = cursor.fetchall()
+    list = []
+    for i in res:
+        list.append(float(i[3]))
+    soma = sum(list)
+    return f'o total do mês é {soma}'
+# soma_total_mes()
+
+
+
+
+
+#=== === ===
+
+
 
 #Cria o banco
 def criar_banco():
@@ -16,35 +86,10 @@ def criar_banco():
                    "FOREIGN KEY (categoria) REFERENCES bancoteste (descricao))")
 criar_banco()
 
-# adiciona novo dado podendo escolher a data
-def adicionar_com_data(data, descricao, valor, categoria):
-
-    descricao = receber_variaveis("Qual o nome da conta?")
-    valor = receber_variaveis("Qual o valor da conta?")
-    categoria = receber_variaveis("Esse conta é fixa ou variavel?")
-
-    cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (data, descricao, valor, categoria))  # inserir valores
-    banco.commit()
-    return print('adicionado')
-# adicionar_com_data('2022-08-10', 'NetFlix', 1829.21, 'variável')
 
 
-# adiciona novo dado com a data do computador
-def adicionar():
-    data = receber_variaveis("Qual a data?")
-    if data == "hoje":
 
-        descricao = receber_variaveis("Qual o nome da conta?")
-        valor = receber_variaveis("Qual o valor da conta?")
-        categoria = receber_variaveis("Esse conta é fixa ou variavel?")
-        data = datetime.datetime.now()
-        dataauto = str(data.date())
-        cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (dataauto, descricao, valor, categoria))
-        banco.commit()
-        return print('adicionado')
-    else:
-        adicionar_com_data(data)
-# adicionar('agua', 156, 'fixo')
+
 
 
 
@@ -80,11 +125,7 @@ def mudar_categoria(id, cat):
 # mudar_categoria('1', 'fixo')
 
 
-def deletar(id):
-   cursor.execute(f"DELETE FROM bancoteste WHERE id='{id}'")  # deletar dado
-   banco.commit()
-   return print('deletado')
-# deletar('17')
+
 
 
 # mostra todos os dados do banco
@@ -137,20 +178,7 @@ def filtrar_categoria(cat):
 # filtrar_categoria('fixo')
 
 
-# mostra o total das contas do mês (dia 01 ao 31)
-def soma_total_mes(*args):
-    data = datetime.datetime.now()
-    ano = str(data.date())[:4]
-    mes = str(data.date())[5:7]
-    mes2 = int(mes)+1
-    cursor.execute(f"SELECT * FROM bancoteste WHERE data BETWEEN '{ano}-{mes}-01' AND '{ano}-{mes2}-31'")
-    res = cursor.fetchall()
-    list = []
-    for i in res:
-        list.append(float(i[3]))
-    soma = sum(list)
-    return f'o total do mês é {soma}'
-# soma_total_mes()
+
 
 
 # mostra o total das contas de certa categoria (fixo ou variável) do dia 01 ao 31

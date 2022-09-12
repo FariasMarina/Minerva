@@ -1,0 +1,34 @@
+import sqlite3
+import datetime
+
+banco = sqlite3.connect('BancoNotas.db')
+cursor = banco.cursor()
+
+def criar_banco():
+    cursor.execute('CREATE TABLE IF NOT EXISTS "Notas"('
+                   '"ID" integer primary key AUTOINCREMENT,'
+                   '"Data" text not null,'
+                   '"Notas" text not null)')
+    banco.commit()
+    return print('Banco criado')
+# criar_banco()
+
+
+def adicionar_nota(nota):
+    data = datetime.datetime.now()
+    dataauto = str(data.date())
+    cursor.execute(f"INSERT INTO Notas(data, Notas) VALUES(?,?)", (dataauto, text))
+    banco.commit()
+    return print('feito')
+# nota = 'lembrar de pagar o guarda-chuva'
+# adicionar_nota(nota)
+
+
+def mostrar_nota(dia):
+    cursor.execute(f"SELECT Notas FROM Notas WHERE data='{dia}'")
+    res = cursor.fetchall()
+    for i in res:
+        tex = str(i)
+        texto = tex.replace('(','').replace(')','').replace(',','')
+        print(texto)
+# mostrar_nota('2022-09-09')

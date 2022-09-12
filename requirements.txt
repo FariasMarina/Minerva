@@ -1,11 +1,5 @@
-asgiref==3.5.2
 azure-cognitiveservices-speech==1.23.0
-comtypes==1.1.13
 PyAudio==0.2.12
-pypiwin32==223
-python-dateutil==2.8.2
-pywin32==304
-six==1.16.0
 SpeechRecognition==3.8.1
-sqlparse==0.4.2
-tzdata==2022.2
+
+

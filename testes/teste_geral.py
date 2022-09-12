@@ -25,7 +25,7 @@ import .teste_funcao_financeiro.financeiro as financeiro
 
 
 def talk(text):
-    speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a", region="brazilsouth")
+    speech_config = speechsdk.SpeechConfig(subscription="X", region="brazilsouth")
     #In this sample we are using the default speaker
     #Learn how to customize your speaker using SSML in Azure Cognitive Services Speech documentation
 
@@ -55,20 +55,15 @@ def recebendo_audio():
 
 
 def run_minerva():
-    #comando = recebendo_audio()
+    comando = recebendo_audio()#.replace(" vírgula ", ", ")
 
-    comando = input("Digite seu comando: ")
-
-    lista_comandos = {'fale':talk}
+    lista_comandos = open(comandos_fala)
 
     for i in lista_comandos.keys():
         if i in comando:
-            a = lista_comandos[i]((comando.replace(i+" ", "")))
-            talk(a)
+            lista_comandos[i]((comando.replace(i+" ", "")))
     else:
-        talk(comando)
-
-print(run_minerva())
+        print(comando)
 
 
 
