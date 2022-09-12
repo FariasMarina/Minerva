@@ -4,31 +4,68 @@ import datetime
 banco = sqlite3.connect('BancoNotas.db')
 cursor = banco.cursor()
 
+
 def criar_banco():
     cursor.execute('CREATE TABLE IF NOT EXISTS "Notas"('
                    '"ID" integer primary key AUTOINCREMENT,'
-                   '"Data" text not null,'
-                   '"Notas" text not null)')
+                   '"data" text not null,'
+                   '"nome" text not null,'
+                   '"notas" text not null)')
     banco.commit()
     return print('Banco criado')
-# criar_banco()
 
 
-def adicionar_nota(nota):
+def adicionar_nota(nome, nota):
     data = datetime.datetime.now()
     dataauto = str(data.date())
-    cursor.execute(f"INSERT INTO Notas(data, Notas) VALUES(?,?)", (dataauto, text))
+    cursor.execute(f"INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)", (dataauto, nome, nota))
     banco.commit()
     return print('feito')
-# nota = 'lembrar de pagar o guarda-chuva'
-# adicionar_nota(nota)
 
 
 def mostrar_nota(dia):
-    cursor.execute(f"SELECT Notas FROM Notas WHERE data='{dia}'")
+    cursor.execute(f"SELECT notas FROM Notas WHERE data='{dia}'")
     res = cursor.fetchall()
     for i in res:
         tex = str(i)
         texto = tex.replace('(','').replace(')','').replace(',','')
         print(texto)
-# mostrar_nota('2022-09-09')
+
+
+def mostrar_notas():
+    cursor.execute(f"SELECT notas FROM Notas")
+    res = cursor.fetchall()
+    for i in res:
+        tex = str(i)
+        texto = tex.replace('(', '').replace(')', '').replace(',', '')
+        print(texto)
+
+
+def adicionar_lembrete(data, nome, lembrete):
+    cursor.execute('INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)', (data, nome, lembrete))
+    banco.commit()
+    return print('feito')
+
+
+def ler_Lembrete():
+    data = datetime.datetime.now()
+    dataauto = str(data.date())
+    cursor.execute(f'SELECT notas FROM Notas WHERE data="{dataauto}"')
+    res = cursor.fetchall()
+    for i in res:
+        tex = str(i)
+        texto = tex.replace('(', '').replace(')', '').replace(',', '')
+        print(texto)
+
+
+
+# criar_banco()
+# adicionar_nota('dog', 'levar dog para passear')
+# mostrar_nota('2022-09-12')
+# mostrar_notas()
+# adicionar_lembrete('2022-09-13', 'remédio', 'tomar remédio')
+# ler_Lembrete()
+
+
+
+
