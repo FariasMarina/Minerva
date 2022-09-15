@@ -8,7 +8,8 @@ from datetime import datetime
 #import emoji
 
 from func import *
-# import financeiro
+import financeiro
+import Notas
 
 def talk(text):
     speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a",
@@ -29,14 +30,14 @@ def talk(text):
 
 def receber_variaveis(text):
     talk(text)
-    valor = recebendo_audio()
+    valor = input(text)
     return valor
 
 
 def recebendo_audio():
-    a = datetime.now() 
+    a = datetime.now()
     rec = sr.Recognizer()
-    c = datetime.now() 
+    c = datetime.now()
     with sr.Microphone() as mic:
         rec.adjust_for_ambient_noise(mic)
         print("Estou te ouvindo...")
@@ -60,15 +61,21 @@ def run_minerva(microfone=False, receber=""):
 					  'pesquise': pesquisar_google,
 					  'apresenta': apresentar,
 					  'piada': piadas,
-					  # 'adicionar conta': financeiro.adicionar,
+					  'adicionar conta': financeiro.adicionar,
                       #TODO: testar comandos com o reconhecimento de voz
 					  #TODO: editar contas
-					  # 'deletar conta': financeiro.deletar,
-                      # 'total de gastos': financeiro.soma_total_mes,
+                      #TODO: Travar a tela do pysimplegui
+					  'deletar conta': financeiro.deletar,
+                      'total de gastos': financeiro.soma_total_mes,
                       'some': calculadora,
                       'divida': calculadora,
                       'multiplique': calculadora,
                       'calcule': calculadora,
+                      'frase motivacional': frases,
+                      'anote': Notas.adicionar_nota,
+                      'mostrar nota': Notas.mostrar_todas_notas,
+                      'tchau': tchau,
+
 }
 
 	for i in lista_comandos.keys():
@@ -80,35 +87,39 @@ def run_minerva(microfone=False, receber=""):
 	else:
 		talk('Desculpe, comando não encontrado')
 
-font = ("Arial", 50)
 
-sg.theme('DarkPurple')
-layout = [
-    [sg.Button("🎙️" ,font=font, key="microfone", size = (12, 1))],
-    [sg.Input(key='comando', font=20)],
-    [sg.Button(font=60, key="enter", bind_return_key=True, visible=False)],
-	[sg.Text("", key="-OUTPUT-")]
-]
+def tela():
+    font = ("Arial", 50)
 
-
-janela = sg.Window('Minerva', layout, element_justification='c')
-
-while True:
-    eventos, valores = janela.read()
-
-    if eventos == sg.WINDOW_CLOSED:
-        break
-    print(eventos)
-    print(valores)
-	
-    if eventos == 'microfone':
-        run_minerva(microfone=True)
-    elif eventos == 'enter':
-        janela["-OUTPUT-"].Update("")
-        janela["comando"].Update("")
-        janela["-OUTPUT-"].Update(run_minerva(receber=valores['comando']))
+    sg.theme('DarkPurple')
+    layout = [
+        [sg.Button("    🎙️" ,font=font, key="microfone", size = (12, 1))],
+        [sg.Input(key='comando', font=20)],
+        [sg.Button(font=60, key="enter", bind_return_key=True, visible=False)],
+        [sg.Text("", key="-OUTPUT-", justification='right')],
+    ]
 
 
+    janela = sg.Window('Minerva', layout, element_justification='c', resizable = False)
+
+    while True:
+        eventos, valores = janela.read()
+
+        if eventos == sg.WINDOW_CLOSED:
+            break
+        print(eventos)
+        print(valores)
+
+        if eventos == 'microfone':
+            run_minerva(microfone=True)
+        elif eventos == 'enter':
+            janela["-OUTPUT-"].Update("")
+            janela["comando"].Update("")
+            janela["-OUTPUT-"].Update(run_minerva(receber=valores['comando']))
+
+
+if __name__ == "__main__":
+    tela()
 
 
 

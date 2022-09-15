@@ -13,7 +13,7 @@ cursor = banco.cursor()
 # adiciona novo dado com a data do computador
 def adicionar(text):
     from main import receber_variaveis
-    print("AAA")
+
     data = receber_variaveis("Qual a data?")
     if data == "hoje":
 

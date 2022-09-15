@@ -13,19 +13,19 @@ def criar_banco():
                    '"notas" text not null)')
     banco.commit()
     return print('Banco criado')
-
+criar_banco()
 
 def adicionar_nota(comando):
     print(comando)
     #TODO: Ajeitar isso aqui
     from main import receber_variaveis
     nome = "_"
-    nota = receber_variaveis('Qual a anotação?')
+    nota = comando
     data = datetime.datetime.now()
     dataauto = str(data.date())
     cursor.execute(f"INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)", (dataauto, nome, nota))
     banco.commit()
-    return print('feito')
+    return 'feito'
 
 
 def mostrar_nota_dia(dia):
@@ -50,16 +50,18 @@ def mostrar_nota_nome(nome):
         print(texto)
 
 
-def mostrar_todas_notas():
+def mostrar_todas_notas(text):
     from main import receber_variaveis
-    comando = receber_variaveis("Deseja ouvir todas as suas notas? Sim ou Não?")
+    # comando = receber_variaveis("Deseja ouvir todas as suas notas? Sim ou Não?")
+    comando = "sim"
     if comando == 'sim':
         cursor.execute(f"SELECT notas FROM Notas")
         res = cursor.fetchall()
         for i in res:
             tex = str(i)
             texto = tex.replace('(', '').replace(')', '').replace(',', '')
-            print(texto)
+            #TODO: Melhorar o jeito de retornar, por enquanto retorna so a ultima
+            return texto
     elif comando == 'nao':
         print('Ok, deixa pra depois')
 

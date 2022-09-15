@@ -1,12 +1,16 @@
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
+
 import azure.cognitiveservices.speech as speechsdk
 import speech_recognition as sr
 
+import Notas
 from func import *
 import financeiro
 
+
 def talk(text):
+
     speech_config = speechsdk.SpeechConfig(subscription="X",
 										   region="brazilsouth")
 
@@ -21,8 +25,8 @@ def talk(text):
 
     #synthesize_to_speaker()
 
-def receber_variaveis(text):
-    talk(text)
+def receber_variaveis(pergunta):
+    talk(pergunta)
     valor = recebendo_audio()
     return valor
 
@@ -55,6 +59,9 @@ def run_minerva():
                       'divida': calculadora,
                       'multiplique': calculadora,
                       'calcule': calculadora,
+                      'anote':Notas.adicionar_nota,
+                      'frases motivacionas': frases,
+
 }
 
     for i in lista_comandos.keys():
@@ -63,8 +70,9 @@ def run_minerva():
             talk(resposta)
             break
 
+
 while True:
-	run_minerva()
+    run_minerva()
 
 
 

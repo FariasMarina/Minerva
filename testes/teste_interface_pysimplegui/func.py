@@ -1,7 +1,7 @@
 import webbrowser
 import random
 
-
+#TODO: Try e exept para a todas as funcões
 
 # - Mudar para Mozilla caso não haja Chrome
 #Abrir a primeira pesquisa no Youtube
@@ -21,7 +21,7 @@ def fale(text):
 
 def apresentar(text):
 	# TODO: Colar o texto que esta la nos testes
-    return "Olá me chamo Minerva, sou sua assitente virtual open source e estou a sua disposição"
+    return "Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. \nMeus hobbie é contar piada, falar e dar rolê com a Ziri. \nVocê pode adicionar comandos facilmente acessando meu repositório no Github."
 	
 
 def piadas(text):
@@ -33,6 +33,10 @@ def piadas(text):
 def frases(text):
     lista_frases = ['É em meio a dificuldade que se encontra a oportunidade','O êxito é ir de frustração a frustração sem perder a animação','Mesmo que algo pareça difícil, nunca desista antes de tentar','Você é o único que entende as suas dificuldades, por isso motive se a prosseguir','Não é uma vida ruim, é apenas um dia ruim, lembre-se disso','A maior prova de que você pode fazer o impossível, é superar circunstâncias difíceis','Que os dias bons se tornem rotina, e os ruins se tornem raros','É genial celebrar a vitória, contudo é mais significativo aprender com as lições da derrota','Qualquer dificuldade pode ser ultrapassada, já que para todo problema há uma solução','Já pensou que você já superou muitas dificuldades até aqui?','Suas pequenas vitórias são todas as dificuldades superadas durante sua vida, tenha orgulho delas','Cada dificuldade ultrapassada te faz mais forte','Desistir não deve ser considerado, mesmo que as coisas não sejam fáceis']
     return random.choice(lista_frases)
+
+
+def tchau(text):
+    return "ADIOS MUTCHATCHOS"
 
 
 def calculadora(text):
