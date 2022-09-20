@@ -12,31 +12,32 @@ def criar_banco():
                    '"nome" text not null,'
                    '"notas" text not null)')
     banco.commit()
-    return print('Banco criado')
 
 
-def adicionar_nota(comando):
-    print(comando)
-    #TODO: Ajeitar isso aqui
-    from main import receber_variaveis
+
+def adicionar_nota(anotacao):
+    print(anotacao)
+
     nome = "_"
-    nota = receber_variaveis('Qual a anotação?')
+    nota = anotacao
     data = datetime.datetime.now()
     dataauto = str(data.date())
     cursor.execute(f"INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)", (dataauto, nome, nota))
     banco.commit()
-    return print('feito')
+    return f'nota {nota} salva'
 
 
-def mostrar_nota_dia(dia):
-    from main import receber_variaveis
-    dia = receber_variaveis('Você quer receber as anotações de que dia?')
-    cursor.execute(f"SELECT notas FROM Notas WHERE data='{dia}'")
+def mostrar_nota_dia():
+    data = datetime.datetime.now()
+    dataauto = str(data.date())
+    cursor.execute(f"SELECT notas FROM Notas WHERE data='{dataauto}'")
     res = cursor.fetchall()
+    resposta = []
     for i in res:
         tex = str(i)
-        texto = tex.replace('(','').replace(')','').replace(',','')
-        print(texto)
+        texto = tex.replace('(', '').replace(')', '').replace(',', '')
+        resposta.append(texto)
+    return f"Voce tem as seguintes notas anotadas, {' e '.join(resposta)}"
 
 
 def mostrar_nota_nome(nome):
@@ -51,20 +52,26 @@ def mostrar_nota_nome(nome):
 
 
 def mostrar_todas_notas():
-    from main import receber_variaveis
-    comando = receber_variaveis("Deseja ouvir todas as suas notas? Sim ou Não?")
-    if comando == 'sim':
         cursor.execute(f"SELECT notas FROM Notas")
         res = cursor.fetchall()
+        resposta = []
         for i in res:
             tex = str(i)
             texto = tex.replace('(', '').replace(')', '').replace(',', '')
-            print(texto)
-    elif comando == 'nao':
-        print('Ok, deixa pra depois')
+            resposta.append(texto)
+        return f"Voce tem as seguintes notas anotadas, {' e '.join(resposta)}"
 
-def adicionar_lembrete(data, nome, lembrete):
-    from main import receber_variaveis
+
+def adicionar_lembrete(texto):
+
+    texto = texto.split()
+    # as 16 h para tirar o frangi
+    # de tirar o frango as 16
+
+    for i in range(len(texto)):
+        if texto[i] == "ás":
+            hora = te
+
     nome = receber_variaveis('Qual nome deseja dar ao lembrete?')
     data = receber_variaveis('Pra que data?')
     lembrete = receber_variaveis('Pode falar o lembrete, estou te ouvindo')

@@ -24,7 +24,6 @@ def fale(text):
 
     #synthesize_to_speaker()
 
-fale("teste")
 def receber_variaveis(text):
     fale(text)
     valor = input(text)
@@ -32,8 +31,9 @@ def receber_variaveis(text):
 
 
 def receber_audio():
+    print(sr.Microphone.list_microphone_names())
     rec = sr.Recognizer()
-    with sr.Microphone() as mic:
+    with sr.Microphone(device_index=18) as mic:
         rec.adjust_for_ambient_noise(mic)
         print("Estou te ouvindo...")
         audio = rec.listen(mic)
@@ -42,6 +42,7 @@ def receber_audio():
             frase = rec.recognize_google(audio, language="pt-BR")
         except:
             print("Erro no recebimento de áudio")
+            return "erro"
         return frase.lower()
 
 
@@ -95,16 +96,30 @@ def run_minerva(input_microfone=False, input_texto=""):
                       
                       'mostrar gastos': financeiro.listar_gastos_mes,
                       'listar gastos': financeiro.listar_gastos_mes,
+                      'liste os gastos': financeiro.listar_gastos_mes,
 
                       'total de gastos do mês': financeiro.soma_total_mes,
                       'soma de gastos do mês': financeiro.soma_total_mes,
 
+
+                      'anote *': notas.adicionar_nota,
+                      'adicionar nota *': notas.adicionar_nota,
+
+                      'mostre minhas notas': notas.mostrar_todas_notas,
+                      'minhas notas': notas.mostrar_todas_notas,
+                      'mostre as minhas notas': notas.mostrar_todas_notas,
+                      'listar notas': notas.mostrar_todas_notas,
+
+                      'mostrar notas de hoje': notas.mostrar_nota_dia,
+                      'mostrar as notas de hoje': notas.mostrar_nota_dia,
+                      'mostre as notas de hoje': notas.mostrar_nota_dia,
+                      'mostre notas de hoje': notas.mostrar_nota_dia,
+
+
+
                       'teste microfone': teste_microfone
-
-
-
-
 }
+
     for chave in lista_comandos.keys():
         if "*" in chave: #verifico se o comando precisa de argumentos
    
@@ -121,7 +136,6 @@ def run_minerva(input_microfone=False, input_texto=""):
                 if argumentos_chave[palavra] != "*": #se for diferente de *
                    if argumentos_chave[palavra] in comando: #vejo se a palavra esta no comando inicial
                        contem_palavras_necessarias += 1 #se sim ela tem +1 palavra necessaria pra rodar esse comandos
-                       print(argumentos_comando, argumentos_chave[palavra])
                        try:
                            argumentos_comando.remove(argumentos_chave[palavra]) #Retiro essa palavra do comando, para sobrar so oque não tem a ver com chamar a função
                        except:
@@ -140,7 +154,7 @@ def run_minerva(input_microfone=False, input_texto=""):
                 break
 
     else:    
-        fale('Desculpe, comando não encontrado' + comando)
+        fale('Desculpe, comando não encontrado ' + comando)
 
 def teste_microfone():
     while True:
@@ -148,7 +162,7 @@ def teste_microfone():
         print(a)
 
 def tela():
-    tipo_input = input("[1]Microfone [2]Comando")
+    tipo_input = input("[1]Microfone [2]Comando: ")
     if tipo_input == "1":
         run_minerva(input_microfone=True)
     elif tipo_input == "2":
@@ -159,7 +173,6 @@ def tela():
 
 
 if __name__ == "__main__":
-    fale("TEste")
     while True:
         tela()
 
