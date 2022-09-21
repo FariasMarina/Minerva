@@ -1,7 +1,9 @@
+from threading import Timer
 import sqlite3
 import datetime
 
-banco = sqlite3.connect('BancoNotas.db')
+
+banco = sqlite3.connect('BancoNotas.db', check_same_thread=False)
 cursor = banco.cursor()
 
 
@@ -20,8 +22,7 @@ def adicionar_nota(anotacao):
 
     nome = "_"
     nota = anotacao
-    data = datetime.datetime.now()
-    dataauto = str(data.date())
+    dataauto = "-"
     cursor.execute(f"INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)", (dataauto, nome, nota))
     banco.commit()
     return f'nota {nota} salva'
@@ -52,43 +53,72 @@ def mostrar_nota_nome(nome):
 
 
 def mostrar_todas_notas():
-        cursor.execute(f"SELECT notas FROM Notas")
+        cursor.execute(f"SELECT notas, data FROM Notas")
         res = cursor.fetchall()
         resposta = []
+        print(res)
         for i in res:
-            tex = str(i)
-            texto = tex.replace('(', '').replace(')', '').replace(',', '')
-            resposta.append(texto)
+            if i[1] == '-':
+                tex = str(i[0])
+                texto = tex.replace('(', '').replace(')', '').replace(',', '')
+                resposta.append(texto)
         return f"Voce tem as seguintes notas anotadas, {' e '.join(resposta)}"
 
 
 def adicionar_lembrete(texto):
 
-    texto = texto.split()
+    texto2 = texto.split()
     # as 16 h para tirar o frangi
+    # as 16 h de tirar o frangi
     # de tirar o frango as 16
+    texto3 = "1"
+    #TODO: remover palavras tipo... "Daqui", "Em" etc...
+    for i in range(len(texto2)):
+        try:
+            data = int(texto2[i])
+            if texto2[i+1] == "minutos":
+                data = data * 60
+                texto3 = texto.replace("minutos", "")
+            elif texto2[i+1] == "horas":
+                data = data * 3600
+                texto3 = texto.replace("horas", "")
+            elif texto2[i+1] == "segundos":
+                data = data
+                texto3 = texto.replace("segundos", "")
+            break
+        except:
+            pass
 
-    for i in range(len(texto)):
-        if texto[i] == "ás":
-            hora = te
-
-    nome = receber_variaveis('Qual nome deseja dar ao lembrete?')
-    data = receber_variaveis('Pra que data?')
-    lembrete = receber_variaveis('Pode falar o lembrete, estou te ouvindo')
+    nome = "_"
+    lembrete = texto3.replace(str(data), "")
     cursor.execute('INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)', (data, nome, lembrete))
     banco.commit()
-    return print('feito')
+
+    temporizador = Timer(data, ler_Lembrete)
+    temporizador.start()
+    return 'feito'
 
 
 def ler_Lembrete():
-    data = datetime.datetime.now()
-    dataauto = str(data.date())
-    cursor.execute(f'SELECT notas FROM Notas WHERE data="{dataauto}"')
+    from main import fale
+    cursor.execute(f"SELECT notas, data, ID FROM Notas")
     res = cursor.fetchall()
+    resposta = None
+    nota_mais_recente = 1000000
+    id_nota_resposta = 0
     for i in res:
-        tex = str(i)
-        texto = tex.replace('(', '').replace(')', '').replace(',', '')
-        print(texto)
+        if i[1] != '-':
+            if int(nota_mais_recente) > int(i[1]):
+                nota_mais_recente = i[1]
+                id_nota_resposta = i[2]
+                tex = str(i[0])
+                texto = tex.replace('(', '').replace(')', '').replace(',', '')
+                resposta = texto
+    cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
+    banco.commit()
+    fale( f"Se lembre de {resposta}")
+
+
 
 
 

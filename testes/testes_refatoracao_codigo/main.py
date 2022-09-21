@@ -101,7 +101,6 @@ def run_minerva(input_microfone=False, input_texto=""):
                       'total de gastos do mês': financeiro.soma_total_mes,
                       'soma de gastos do mês': financeiro.soma_total_mes,
 
-
                       'anote *': notas.adicionar_nota,
                       'adicionar nota *': notas.adicionar_nota,
 
@@ -109,12 +108,18 @@ def run_minerva(input_microfone=False, input_texto=""):
                       'minhas notas': notas.mostrar_todas_notas,
                       'mostre as minhas notas': notas.mostrar_todas_notas,
                       'listar notas': notas.mostrar_todas_notas,
+                      'ler notas': notas.mostrar_todas_notas,
 
                       'mostrar notas de hoje': notas.mostrar_nota_dia,
                       'mostrar as notas de hoje': notas.mostrar_nota_dia,
                       'mostre as notas de hoje': notas.mostrar_nota_dia,
                       'mostre notas de hoje': notas.mostrar_nota_dia,
 
+                      'lembrete *': notas.adicionar_lembrete,
+                      'me lembre de *': notas.adicionar_lembrete,
+                      'lembre *': notas.adicionar_lembrete,
+                      'me lembra de *': notas.adicionar_lembrete,
+                      'me da um toque *': notas.adicionar_lembrete,
 
 
                       'teste microfone': teste_microfone
