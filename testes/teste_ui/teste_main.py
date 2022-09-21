@@ -10,3 +10,5 @@ janela.pushButton.clicked.connect(teste_geral.run_minerva())
 janela.show()
 
 app.exec()
+
+#usar teste_geral no mesmo diretorio
