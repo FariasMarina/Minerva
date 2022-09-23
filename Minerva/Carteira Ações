@@ -1,3 +1,6 @@
+'''Manter integrado com arquivo Excel 'Carteira.xlsx'.'''
+
+
 from sys import displayhook
 import pandas as pd
 from alpha_vantage.timeseries import TimeSeries
