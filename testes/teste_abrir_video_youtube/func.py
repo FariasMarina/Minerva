@@ -2,11 +2,22 @@ import webbrowser
 import random
 from datetime import datetime
 import requests
+import urllib.request
+import re
+import os
 
+def tocar_musica(*musica):
+    print(musica)
+    if musica[0] == '':
+        proucura = "musica"
+    else:
+        proucura = musica[0].replace(" ", "+")
 
+    html = urllib.request.urlopen("https://www.youtube.com/results?search_query="+proucura)
+    video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+    os.startfile("https://www.youtube.com/watch?v="+video_ids[1])
+    return f"Tocando agora {musica} no youtube"
 
-# - Mudar para Mozilla caso não haja Chrome
-#Abrir a primeira pesquisa no Youtube
 
 def temperatura(*argv):
     API_KEY = "1a32328f047315c5036afdf2c4fbf1a8"
@@ -23,8 +34,8 @@ def temperatura(*argv):
         return f'em {cidade} está fazendo {temperatura:.0f}ºC e esta {descricao}'
     except:
         return "Desculpe cidade não encontrada"
+    
 
-print(temperatura(""))
 
 def pesquisar_google(comando):
     print(comando)
