@@ -4,10 +4,11 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 import azure.cognitiveservices.speech as speechsdk
 import speech_recognition as sr
 
-import Notas
-from func import *
-import financeiro
+import comandos.Notas as Notas
+from comandos.func import *
+import comandos.financeiro as financeiro
 
+#!/usr/bin/env python
 
 def talk(text):
 
