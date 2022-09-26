@@ -1,11 +1,11 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
-import teste_geral
+from Minerva import main
 
 
 app =  QApplication([])
 janela = uic.loadUi("microfone.ui")
-janela.pushButton.clicked.connect(teste_geral.run_minerva())
+janela.pushButton.clicked.connect(main.run_minerva)
 
 janela.show()
 
