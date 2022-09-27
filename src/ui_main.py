@@ -1,13 +1,13 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
-import main
+from src import main
 
 def click():
-    return main.run_minerva
+    return
 
 app = QApplication([])
-janela = uic.loadUi("microfone_main.ui")
-janela.pushButton_microfone.clicked.connect(click)
+janela = uic.loadUi("untitled.ui")
+janela.pushButton.clicked.connect(main.run_minerva)
 
 janela.show()
 

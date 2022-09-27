@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="microfone">
-    <file>microfone.png</file>
-  </qresource>
-  <qresource prefix="newPrefix"/>
-</RCC>
