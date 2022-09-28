@@ -147,4 +147,20 @@ def diga_data():
     data = datetime.now().strftime('%Y-%m-%d')
     return data
 
+def Desligar_pc():
+    if (os.name == "nt"):
+        os.system("shutdown /s /t 1")
+    else:
+        os.system("shutdown -h now")
+
+def Abrir_arquivo(comando):
+    try:
+        a = r'{}.exe'.format(comando)
+        os.startfile(a)
+        return f"{comando} aberto"
+    except:
+        os.startfile(comando)
+        return  "Arquivo aberto"
+    else:
+        return "Caminho não encontrado"
 
