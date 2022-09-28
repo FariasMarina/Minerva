@@ -1,6 +1,5 @@
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
-
 import azure.cognitiveservices.speech as speechsdk
 import speech_recognition as sr
 
@@ -51,11 +50,11 @@ def run_minerva():
 					  'pesquise': pesquisar_google,
 					  'apresenta': apresentar,
 					  'piada': piadas,
-					  'adicionar conta': financeiro.adicionar, 
+	#				  'adicionar conta': financeiro.adicionar,
                       #TODO: testar comandos com o reconhecimento de voz
 					  #TODO: editar contas
-					  'deletar conta': financeiro.deletar,
-                      'total de gastos': financeiro.soma_total_mes,
+	#				  'deletar conta': financeiro.deletar,
+     #                 'total de gastos': financeiro.soma_total_mes,
                       'some': calculadora,
                       'divida': calculadora,
                       'multiplique': calculadora,
@@ -70,15 +69,6 @@ def run_minerva():
             resposta = lista_comandos[i]((comando.replace(i+" ", "")))
             talk(resposta)
             break
-
-
-while True:
-    run_minerva()
-
-
-
-
-
 
 
 

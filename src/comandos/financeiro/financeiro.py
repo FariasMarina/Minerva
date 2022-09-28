@@ -12,7 +12,7 @@ cursor = banco.cursor()
 
 # adiciona novo dado com a data do computador
 def adicionar(text):
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     print("AAA")
     data = receber_variaveis("Qual a data?")
     if data == "hoje":
@@ -32,7 +32,7 @@ def adicionar(text):
 
 # adiciona novo dado podendo escolher a data
 def adicionar_com_data(data):
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     descricao = receber_variaveis("Qual o nome da conta?")
     valor = receber_variaveis("Qual o valor da conta?")
     categoria = receber_variaveis("Esse conta é fixa ou variavel?")
@@ -45,7 +45,7 @@ def adicionar_com_data(data):
 
 
 def deletar(text):
-   from	main import receber_variaveis
+   from	src.main import receber_variaveis
    id = receber_variaveis('Qual o numero da conta?')
    cursor.execute(f"DELETE FROM bancoteste WHERE id='{id}'")  # deletar dado
    banco.commit()

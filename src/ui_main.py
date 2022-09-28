@@ -1,13 +1,13 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
-from src import main
+from main import run_minerva
 
 def click():
-    return
+    return "oi"
 
 app = QApplication([])
 janela = uic.loadUi("untitled.ui")
-janela.pushButton.clicked.connect(main.run_minerva)
+janela.pushButton.clicked.connect(run_minerva)
 
 janela.show()
 

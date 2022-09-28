@@ -18,7 +18,7 @@ def criar_banco():
 def adicionar_nota(comando):
     print(comando)
     #TODO: Ajeitar isso aqui
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     nome = "_"
     nota = receber_variaveis('Qual a anotação?')
     data = datetime.datetime.now()
@@ -29,7 +29,7 @@ def adicionar_nota(comando):
 
 
 def mostrar_nota_dia(dia):
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     dia = receber_variaveis('Você quer receber as anotações de que dia?')
     cursor.execute(f"SELECT notas FROM Notas WHERE data='{dia}'")
     res = cursor.fetchall()
@@ -40,7 +40,7 @@ def mostrar_nota_dia(dia):
 
 
 def mostrar_nota_nome(nome):
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     nome = receber_variaveis('Qual o nome da nota?')
     cursor.execute(f"SELECT notas FROM Notas WHERE nome='{nome}'")
     res = cursor.fetchall()
@@ -51,7 +51,7 @@ def mostrar_nota_nome(nome):
 
 
 def mostrar_todas_notas():
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     comando = receber_variaveis("Deseja ouvir todas as suas notas? Sim ou Não?")
     if comando == 'sim':
         cursor.execute(f"SELECT notas FROM Notas")
@@ -64,7 +64,7 @@ def mostrar_todas_notas():
         print('Ok, deixa pra depois')
 
 def adicionar_lembrete(data, nome, lembrete):
-    from main import receber_variaveis
+    from src.main import receber_variaveis
     nome = receber_variaveis('Qual nome deseja dar ao lembrete?')
     data = receber_variaveis('Pra que data?')
     lembrete = receber_variaveis('Pode falar o lembrete, estou te ouvindo')

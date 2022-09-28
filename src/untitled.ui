@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>882</width>
-    <height>643</height>
+    <width>671</width>
+    <height>682</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,7 +61,8 @@ border-radius: 10px;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">font-size:20px;</string>
+           <string notr="true">font-size:20px;
+color: white;</string>
           </property>
           <property name="text">
            <string>Clique para falar com a Minerva:</string>
@@ -71,7 +72,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>180</y>
+            <y>160</y>
             <width>250</width>
             <height>250</height>
            </rect>
@@ -89,10 +90,36 @@ border-radius: 10px;</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/microfone/microfone.png);</string>
+           <string notr="true">background-image: url(:/botao_micro/microfone.png);</string>
           </property>
           <property name="text">
            <string/>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>460</y>
+            <width>350</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(71, 68, 75);
+border-radius: 5px;</string>
           </property>
          </widget>
         </widget>
@@ -102,19 +129,9 @@ border-radius: 10px;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>882</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources>
-  <include location="recursos_qt/img_qt.qrc"/>
+  <include location="resource_min.qrc"/>
  </resources>
  <connections/>
 </ui>
