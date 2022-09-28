@@ -14,9 +14,10 @@ Minerva é uma assistente virtual Open Source feita em Python. Escuta e responde
 <h3>✉️ Como contatar os devs</h3>
 <h4>Você pode contatar o devs para tirar dúvidas pelo Linkedin:</h4>
 <a href='https://www.linkedin.com/in/mariana-possamai-bb899a214'> Mariana Possamai  </a>|
+<a href="https://www.linkedin.com/in/henrique-samuel-de-andrade-2165a8244/">Henrique Samuel </a> |
 <a href="https://www.linkedin.com/in/marinafariastech/">Marina Farias </a> |
-<a href ="https://www.linkedin.com/in/joilson-julkoski-souza-2116581a8/">Joilson Julkoski </a> |
-<a href="https://www.linkedin.com/in/henrique-samuel-de-andrade-2165a8244/">Henrique Samuel </a> 
+<a href ="https://www.linkedin.com/in/joilson-julkoski-souza-2116581a8/">Joilson Julkoski </a>
+
 <br>
 <br>
 <hr>
