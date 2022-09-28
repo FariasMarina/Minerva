@@ -1,7 +1,7 @@
 # Minerva
 
 
-<img src="Minerva.png">
+<img src="images/Minerva.png">
 <h3>O que é?</h3>
 Minerva é uma assistente virtual Open Source feita em Python. Escuta e responde de acordo com o que a foi programado. É usada a tecnologia de Speech Recognition e Sintetizador de voz Azure para resposta. 
 

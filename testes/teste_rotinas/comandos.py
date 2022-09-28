@@ -22,7 +22,10 @@ lista_comandos = {
                       'se apresenta': func.apresentar,
                       
                       'piada': func.piadas,
+                      'desligar computador': func.Desligar_pc,
+                      'abrir arquivo *': func.Abrir_arquivo,
                       'me faça rir': func.piadas,
+
 
                       'frase motivacional': func.frases,
 
@@ -93,5 +96,10 @@ lista_comandos = {
                       '@ teste 4': 'teste_4', 
                       '@ teste 5': 'teste_5', 
                       '@ teste 6': 'teste_6', 
+                      '@ boa noite': 'boa_noite', 
+                      '@ boa noite': 'boa_noite', 
+                      '@ adios': 'adios', 
+                      '@ vitorgay': 'vitorgay', 
 }
+
 
