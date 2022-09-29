@@ -16,8 +16,8 @@ Pull requests são a melhor forma de alterar o código (usamos [Github Flow](htt
 2. Se você adicionou código que precisa ser testado, adicione em 'testes'.
 3. Se você mudou APIs, dê um update na documentação.
 4. Tenha certeza que o teste passou.
-6. Make sure your code lints.
-7. Issue that pull request!
+6. Issue seu pull request!
+
 
 
 ## Todas as contribuições devem ser feitas com a licença do MIT.
