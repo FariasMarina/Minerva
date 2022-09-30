@@ -102,13 +102,14 @@ def run_minerva(input_microfone=False, input_texto=""):
                 resposta = lista_comandos[chave](' '.join(argumentos_comando))
                 try:
                     fale(resposta)
+                    return resposta
                 except:
                     pass
                 break
 
         elif "@" in chave:
             if chave.replace("@ ", "") in comando:
-                executar_rotina(lista_comandos[chave])
+                return executar_rotina(lista_comandos[chave])
                 break
 
         else:
@@ -118,8 +119,9 @@ def run_minerva(input_microfone=False, input_texto=""):
                 return resposta
                 break
 
-    else:    
+    else:
         fale('Desculpe, comando não encontrado ' + comando)
+        return 'Desculpe, comando não encontrado '
 
 def teste_microfone():
     while True:

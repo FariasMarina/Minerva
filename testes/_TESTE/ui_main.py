@@ -6,38 +6,47 @@ import main
 
 def clicked():
     a = janela.listWidget.currentItem()
-    print(a.text())
+
     if "*" in a.text():
         janela.lineEdit.setText(a.text().replace("*", ""))
     else:
-        main.run_minerva(input_texto=a.text().replace("@", ""))
+        janela.label_2.setText(main.run_minerva(input_texto=a.text().replace("@", "").replace("/", "")))
         janela.lineEdit.setText("")
+
 
 
 def clicked_by_enter():
     a = janela.lineEdit.text()
-    main.run_minerva(input_texto=a.replace("@", ""))
+    janela.label_2.setText(main.run_minerva(input_texto=a.replace("@", "").replace("/", "")))
     janela.lineEdit.setText("")
 
+def clicked_on_microphone():
+    print(main.run_minerva(input_microfone=True))
 
 
 def update_display(text):
 
-    comandos = main.receber_lista_comandos_atualizada()
+    if "/" in text:
+        janela.listWidget.setVisible(True)
+        text = text.replace("/", "")
 
-    comandos_filtro = []
+        comandos = main.receber_lista_comandos_atualizada()
 
-
-    for widget in comandos:
-        if text.lower() in widget.lower():
-
-            comandos_filtro.append(widget)
+        comandos_filtro = []
 
 
-    janela.listWidget.clear()
-    for i in comandos_filtro:
-        janela.listWidget.insertItem(2, i)
+        for widget in comandos:
+            if text.lower() in widget.lower():
 
+                comandos_filtro.append(widget)
+
+
+        janela.listWidget.clear()
+        for i in comandos_filtro:
+            janela.listWidget.insertItem(2, i)
+
+    else:
+        janela.listWidget.setVisible(False)
 
 
 
@@ -56,8 +65,10 @@ janela.listWidget.clicked.connect(clicked)
 
 janela.lineEdit.textChanged.connect(update_display)
 janela.lineEdit.returnPressed.connect(clicked_by_enter)
+janela.pushButton.clicked.connect(clicked_on_microphone)
 
 
+janela.listWidget.setVisible(False)
 
 janela.show()
 
