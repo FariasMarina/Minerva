@@ -9,6 +9,11 @@ import comandos
 
 lista_comandos = comandos.lista_comandos
 
+def receber_lista_comandos_atualizada():
+    importlib.reload(comandos)
+    importlib.reload(rotinas)
+    return comandos.lista_comandos.keys()
+
 def executar_rotina(nome_rotina):
     print("inicio rotina")
     comandos = eval(f"rotinas.{nome_rotina}()")

@@ -93,11 +93,6 @@ lista_comandos = {
                       "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
                       "mostrar carteira": carteira_acoes.ver_carteira,
 
-                      '@ bom_dia': 'bom_dia', 
-                      '@ teste2': 'teste2', 
-                      '@ teste_3': 'teste_3', 
-                      '@ teste 4': 'teste_4', 
-                      '@ teste 5': 'teste_5', 
-                      '@ teste 6': 'teste_6', 
+
 }
 

@@ -2,8 +2,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import Qt, QSortFilterProxyModel
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
-from main import lista_comandos, run_minerva
-
+import main
 
 def clicked():
     a = janela.listWidget.currentItem()
@@ -11,18 +10,21 @@ def clicked():
     if "*" in a.text():
         janela.lineEdit.setText(a.text().replace("*", ""))
     else:
-        run_minerva(input_texto=a.text().replace("@", ""))
+        main.run_minerva(input_texto=a.text().replace("@", ""))
         janela.lineEdit.setText("")
 
 
 def clicked_by_enter():
     a = janela.lineEdit.text()
-    run_minerva(input_texto=a.replace("@", ""))
+    main.run_minerva(input_texto=a.replace("@", ""))
     janela.lineEdit.setText("")
 
 
 
 def update_display(text):
+
+    comandos = main.receber_lista_comandos_atualizada()
+
     comandos_filtro = []
 
 
@@ -45,7 +47,7 @@ janela = uic.loadUi("untitled.ui")
 
 modelo = QStandardItemModel(12,1)
 
-comandos = lista_comandos.keys()
+comandos = main.receber_lista_comandos_atualizada()
 
 
 janela.listWidget.clicked.connect(clicked)
