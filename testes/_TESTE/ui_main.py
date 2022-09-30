@@ -1,7 +1,7 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import Qt, QSortFilterProxyModel
-from PyQt5.QtGui import QStandardItem, QStandardItemModel
+from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
 import main
 
 def clicked():
@@ -67,6 +67,7 @@ janela.lineEdit.textChanged.connect(update_display)
 janela.lineEdit.returnPressed.connect(clicked_by_enter)
 janela.pushButton.clicked.connect(clicked_on_microphone)
 
+# janela.pushButton.setIcon(QIcon('logo.png'))
 
 janela.listWidget.setVisible(False)
 
