@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="botao_micro">
+    <file>microfone.png</file>
+  </qresource>
+  <qresource prefix="micro menor">
+    <file>micromenor.png</file>
+  </qresource>
+</RCC>
