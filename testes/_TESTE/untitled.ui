@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>613</height>
+    <width>538</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,10 +15,22 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0.209, y1:0, x2:1, y2:0, stop:0 rgba(57, 0, 93, 255), stop:1 rgba(1, 0, 127, 255));</string>
+       <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(175, 37, 62, 255), stop:1 rgba(139, 36, 188, 255));</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -27,18 +39,36 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QFrame" name="frame_2">
          <property name="minimumSize">
           <size>
            <width>450</width>
-           <height>450</height>
+           <height>550</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>450</width>
-           <height>550</height>
+           <height>400</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -54,8 +84,8 @@ border-radius: 10px;</string>
          <widget class="QListWidget" name="listWidget">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>400</y>
+            <x>30</x>
+            <y>330</y>
             <width>401</width>
             <height>61</height>
            </rect>
@@ -70,30 +100,49 @@ border-radius: 10px;</string>
          <widget class="QLineEdit" name="lineEdit">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>380</y>
+            <x>30</x>
+            <y>300</y>
             <width>401</width>
-            <height>20</height>
+            <height>39</height>
            </rect>
           </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>39</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
-           <string notr="true">background-color:white</string>
+           <string notr="true">background-color: rgb(54, 54, 54);
+border-radius:10px;
+padding-left: 10px;
+</string>
+          </property>
+          <property name="placeholderText">
+           <string notr="true">Digite seu comando aqui...</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>60</x>
-            <y>470</y>
+            <x>40</x>
+            <y>130</y>
             <width>341</width>
-            <height>71</height>
+            <height>141</height>
            </rect>
           </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: white</string>
+           <string notr="true">color:#AF2567;
+font-size:20px;</string>
           </property>
           <property name="text">
            <string/>
@@ -102,14 +151,27 @@ border-radius: 10px;</string>
          <widget class="Line" name="line">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>340</y>
-            <width>431</width>
-            <height>8</height>
+            <x>-100</x>
+            <y>260</y>
+            <width>1000</width>
+            <height>5</height>
            </rect>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>1000</width>
+            <height>1</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>1</height>
+           </size>
+          </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white; border-radius: 2 px</string>
+           <string notr="true">background-color: #3A3636; 
+border-radius: 2 px</string>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -119,7 +181,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>70</y>
+            <y>10</y>
             <width>250</width>
             <height>250</height>
            </rect>
@@ -160,22 +222,35 @@ border-radius: 10px;</string>
            <bool>false</bool>
           </property>
          </widget>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>510</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: pink;
+border-radius: 100px;</string>
+          </property>
+          <property name="text">
+           <string>oi</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>488</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
  </widget>
  <resources/>
