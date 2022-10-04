@@ -6,19 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
-    <height>780</height>
+    <width>591</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
+    <property name="leftMargin">
      <number>0</number>
     </property>
-    <property name="leftMargin">
+    <property name="topMargin">
      <number>0</number>
     </property>
     <property name="rightMargin">
@@ -62,13 +66,13 @@
          <property name="minimumSize">
           <size>
            <width>450</width>
-           <height>550</height>
+           <height>450</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>450</width>
-           <height>400</height>
+           <height>500</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -84,9 +88,9 @@ border-radius: 10px;</string>
          <widget class="QListWidget" name="listWidget">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>330</y>
-            <width>401</width>
+            <x>50</x>
+            <y>350</y>
+            <width>351</width>
             <height>61</height>
            </rect>
           </property>
@@ -100,9 +104,9 @@ border-radius: 10px;</string>
          <widget class="QLineEdit" name="lineEdit">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>300</y>
-            <width>401</width>
+            <x>50</x>
+            <y>310</y>
+            <width>351</width>
             <height>39</height>
            </rect>
           </property>
@@ -131,10 +135,10 @@ padding-left: 10px;
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>130</y>
-            <width>341</width>
-            <height>141</height>
+            <x>50</x>
+            <y>360</y>
+            <width>351</width>
+            <height>81</height>
            </rect>
           </property>
           <property name="layoutDirection">
@@ -147,6 +151,9 @@ font-size:20px;</string>
           <property name="text">
            <string/>
           </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
          </widget>
          <widget class="Line" name="line">
           <property name="geometry">
@@ -154,7 +161,7 @@ font-size:20px;</string>
             <x>-100</x>
             <y>260</y>
             <width>1000</width>
-            <height>5</height>
+            <height>1</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -194,7 +201,7 @@ border-radius: 2 px</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>500</width>
+            <width>250</width>
             <height>250</height>
            </size>
           </property>
@@ -211,8 +218,8 @@ border-radius: 2 px</string>
           </property>
           <property name="iconSize">
            <size>
-            <width>1000</width>
-            <height>1000</height>
+            <width>250</width>
+            <height>250</height>
            </size>
           </property>
           <property name="shortcut">
@@ -245,6 +252,72 @@ border-radius: 100px;</string>
            <string>oi</string>
           </property>
          </widget>
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>430</y>
+            <width>51</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+border-radius:100px;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../../../../Downloads/Group 5.png</normaloff>../../../../../Downloads/Group 5.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>70</width>
+            <height>70</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>300</y>
+            <width>271</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Century Gothic</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius:10px; ;border:2px;
+background-color: rgb(54, 54, 54); color: white; 
+border: 1px; border-color:white; border-style:solid;</string>
+          </property>
+          <property name="text">
+           <string>- Digite '/' para ver os comandos; 
+ 
+- Clique no campo de texto caso queira digitar; 
+ 
+- Toque no ícone de microfone para gravar sua voz.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <zorder>label_2</zorder>
+         <zorder>listWidget</zorder>
+         <zorder>lineEdit</zorder>
+         <zorder>line</zorder>
+         <zorder>pushButton</zorder>
+         <zorder>pushButton_2</zorder>
+         <zorder>pushButton_3</zorder>
+         <zorder>label</zorder>
         </widget>
        </item>
       </layout>
