@@ -1,6 +1,6 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMessageBox
-from PyQt5.QtCore import Qt, QSortFilterProxyModel
+from PyQt5.QtCore import Qt, QSortFilterProxyModel, QEvent
 from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
 import testes._TESTE.main as main
 
@@ -35,6 +35,12 @@ def caixa_de_lembrete(a):
     lembrete.show()
 
     app2.exec()
+
+def aparecer_help(a):
+    janela.label.setVisible(True)
+#
+def desaparecer_help(a):
+    janela.label.setVisible(False)
 
 
 
@@ -81,10 +87,16 @@ if __name__ == "__main__":
     janela.lineEdit.textChanged.connect(update_display)
     janela.lineEdit.returnPressed.connect(clicked_by_enter)
     janela.pushButton.clicked.connect(caixa_de_lembrete)
+    janela.pushButton_3.clicked.connect(aparecer_help)
+    janela.pushButton_3.enterEvent = aparecer_help
+    janela.pushButton_3.leaveEvent = desaparecer_help
+    # janela.clicked.connect()
+
 
     # janela.pushButton.setIcon(QIcon('logo.png'))
 
     janela.listWidget.setVisible(False)
+    janela.label.setVisible(False)
 
     janela.show()
 

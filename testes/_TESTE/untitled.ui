@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</iconset>
+    <normaloff>Logo_Minerva_peq(1).png</normaloff>Logo_Minerva_peq(1).png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -262,7 +262,7 @@ border-radius: 100px;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
 border-radius:100px;</string>
           </property>
           <property name="text">
@@ -270,7 +270,7 @@ border-radius:100px;</string>
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../../../../Downloads/Group 5.png</normaloff>../../../../../Downloads/Group 5.png</iconset>
+            <normaloff>Group 5.png</normaloff>Group 5.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -282,10 +282,10 @@ border-radius:100px;</string>
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>130</x>
-            <y>300</y>
-            <width>271</width>
-            <height>151</height>
+            <x>50</x>
+            <y>350</y>
+            <width>351</width>
+            <height>141</height>
            </rect>
           </property>
           <property name="font">
@@ -316,8 +316,8 @@ border: 1px; border-color:white; border-style:solid;</string>
          <zorder>line</zorder>
          <zorder>pushButton</zorder>
          <zorder>pushButton_2</zorder>
-         <zorder>pushButton_3</zorder>
          <zorder>label</zorder>
+         <zorder>pushButton_3</zorder>
         </widget>
        </item>
       </layout>
