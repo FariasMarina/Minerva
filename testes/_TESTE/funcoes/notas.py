@@ -3,6 +3,7 @@ import sqlite3
 import datetime
 
 
+
 banco = sqlite3.connect('BancoNotas.db', check_same_thread=False)
 cursor = banco.cursor()
 
@@ -118,7 +119,7 @@ def adicionar_lembrete(texto):
 
 
 def ler_Lembrete():
-    from main import fale
+    import testes._TESTE.ui_main as t
     try:
         cursor.execute(f"SELECT notas, data, ID FROM Notas")
         res = cursor.fetchall()
@@ -135,7 +136,9 @@ def ler_Lembrete():
                     resposta = texto
         cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
         banco.commit()
-        fale( f"Se lembre de {resposta}")
+        print("A")
+        t.caixa_de_lembrete(f"Se lembre de {resposta}")
+        t.janela.show()
     except:
         return 'Não foi possivel ler o lembrete'
 

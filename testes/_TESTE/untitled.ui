@@ -6,23 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>561</height>
+    <width>538</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</normaloff>../../../../../Downloads/Logo_Minerva_peq(1).png</iconset>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="leftMargin">
+    <property name="spacing">
      <number>0</number>
     </property>
-    <property name="topMargin">
+    <property name="leftMargin">
      <number>0</number>
     </property>
     <property name="rightMargin">
@@ -66,13 +62,13 @@
          <property name="minimumSize">
           <size>
            <width>450</width>
-           <height>450</height>
+           <height>550</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>450</width>
-           <height>500</height>
+           <height>400</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -88,9 +84,9 @@ border-radius: 10px;</string>
          <widget class="QListWidget" name="listWidget">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>350</y>
-            <width>351</width>
+            <x>30</x>
+            <y>330</y>
+            <width>401</width>
             <height>61</height>
            </rect>
           </property>
@@ -104,9 +100,9 @@ border-radius: 10px;</string>
          <widget class="QLineEdit" name="lineEdit">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>310</y>
-            <width>351</width>
+            <x>30</x>
+            <y>300</y>
+            <width>401</width>
             <height>39</height>
            </rect>
           </property>
@@ -135,10 +131,10 @@ padding-left: 10px;
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>360</y>
-            <width>351</width>
-            <height>81</height>
+            <x>40</x>
+            <y>130</y>
+            <width>341</width>
+            <height>141</height>
            </rect>
           </property>
           <property name="layoutDirection">
@@ -151,9 +147,6 @@ font-size:20px;</string>
           <property name="text">
            <string/>
           </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
          </widget>
          <widget class="Line" name="line">
           <property name="geometry">
@@ -161,7 +154,7 @@ font-size:20px;</string>
             <x>-100</x>
             <y>260</y>
             <width>1000</width>
-            <height>1</height>
+            <height>5</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -201,7 +194,7 @@ border-radius: 2 px</string>
           </property>
           <property name="maximumSize">
            <size>
-            <width>250</width>
+            <width>500</width>
             <height>250</height>
            </size>
           </property>
@@ -218,8 +211,8 @@ border-radius: 2 px</string>
           </property>
           <property name="iconSize">
            <size>
-            <width>250</width>
-            <height>250</height>
+            <width>1000</width>
+            <height>1000</height>
            </size>
           </property>
           <property name="shortcut">
@@ -252,40 +245,6 @@ border-radius: 100px;</string>
            <string>oi</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="geometry">
-           <rect>
-            <x>390</x>
-            <y>430</y>
-            <width>51</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-border-radius:100px;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../../../../Downloads/Group 5.png</normaloff>../../../../../Downloads/Group 5.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>70</width>
-            <height>70</height>
-           </size>
-          </property>
-         </widget>
-         <zorder>label_2</zorder>
-         <zorder>listWidget</zorder>
-         <zorder>lineEdit</zorder>
-         <zorder>line</zorder>
-         <zorder>pushButton</zorder>
-         <zorder>pushButton_2</zorder>
-         <zorder>pushButton_3</zorder>
         </widget>
        </item>
       </layout>
