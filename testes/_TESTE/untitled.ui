@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
-    <height>780</height>
+    <width>513</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,14 +61,14 @@
         <widget class="QFrame" name="frame_2">
          <property name="minimumSize">
           <size>
-           <width>450</width>
+           <width>448</width>
            <height>550</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>450</width>
-           <height>400</height>
+           <height>600</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -85,7 +85,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>330</y>
+            <y>340</y>
             <width>401</width>
             <height>61</height>
            </rect>
@@ -131,10 +131,10 @@ padding-left: 10px;
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>40</x>
-            <y>130</y>
-            <width>341</width>
-            <height>141</height>
+            <x>30</x>
+            <y>350</y>
+            <width>401</width>
+            <height>191</height>
            </rect>
           </property>
           <property name="layoutDirection">
@@ -147,6 +147,9 @@ font-size:20px;</string>
           <property name="text">
            <string/>
           </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
          </widget>
          <widget class="Line" name="line">
           <property name="geometry">
@@ -154,7 +157,7 @@ font-size:20px;</string>
             <x>-100</x>
             <y>260</y>
             <width>1000</width>
-            <height>5</height>
+            <height>1</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -226,7 +229,7 @@ border-radius: 2 px</string>
           <property name="geometry">
            <rect>
             <x>410</x>
-            <y>510</y>
+            <y>560</y>
             <width>21</width>
             <height>21</height>
            </rect>
@@ -245,6 +248,12 @@ border-radius: 100px;</string>
            <string>oi</string>
           </property>
          </widget>
+         <zorder>label_2</zorder>
+         <zorder>listWidget</zorder>
+         <zorder>lineEdit</zorder>
+         <zorder>line</zorder>
+         <zorder>pushButton</zorder>
+         <zorder>pushButton_2</zorder>
         </widget>
        </item>
       </layout>
