@@ -94,5 +94,7 @@ lista_comandos = {
                       "mostrar carteira": carteira_acoes.ver_carteira,
 
 
+                      '@ a': 'a', 
+                      '@ a': 'a', 
 }
 

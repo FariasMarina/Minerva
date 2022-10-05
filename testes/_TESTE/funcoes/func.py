@@ -16,8 +16,7 @@ def criar_rotina():
         nome_rotina = input("Nome função: ")
         nome_funcao= nome_rotina.replace(" ", "_")
         funcoes = input("Lista com funcoes: ").split(",")
-        print(funcoes)
-        print(type(funcoes))
+
     #    comandos_cadastrados = []
     #    for i in lista_comandos.values():
     #        comandos_cadastrados.append(i.__name__)
@@ -32,14 +31,14 @@ def criar_rotina():
     #                print("comando nao cadastrado " + i)
             arquivo.write(f"]\n")
 
-            with open("../comandos.py", "r") as f:
-                contents = f.readlines()
+        with open("testes/_TESTE/comandos.py", "r") as f:
+            contents = f.readlines()
 
-            contents.insert(-2, f"                      '@ {nome_rotina}': '{nome_funcao}', \n")
+        contents.insert(-2, f"                      '@ {nome_rotina}': '{nome_funcao}', \n")
 
-            with open("../comandos.py", "w") as f:
-                contents = "".join(contents)
-                f.write(contents)
+        with open("comandos.py", "w") as f:
+            contents = "".join(contents)
+            f.write(contents)
         return f"Rotina {nome_rotina} adicionada com sucesso"
     except:
         return 'Não foi possivel criar a rotina'

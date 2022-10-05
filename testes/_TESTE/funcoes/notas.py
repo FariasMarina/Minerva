@@ -136,8 +136,7 @@ def ler_Lembrete():
                     resposta = texto
         cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
         banco.commit()
-        print("A")
-        t.caixa_de_lembrete(f"Se lembre de {resposta}")
+        t.caixa_de_lembrete(f"Se lembre de {resposta.replace('daqui', '').replace('em', '')}")
         t.janela.show()
     except:
         return 'Não foi possivel ler o lembrete'
