@@ -41,7 +41,7 @@ def criar_rotina():
             f.write(contents)
         return f"Rotina {nome_rotina} adicionada com sucesso"
     except:
-        return 'Não foi possivel criar a rotina'
+        return 'Não foi possível criar a rotina'
 
 
 
@@ -69,7 +69,7 @@ def tocar_musica(*musica):
         webbrowser.open("https://www.youtube.com/watch?v="+video_ids[0])
         return f"Tocando agora {musica} no youtube"
     except:
-        return 'Não foi possivel tocar a música'
+        return 'Não foi possível tocar a música'
 
 
 def temperatura(*argv):
@@ -90,7 +90,7 @@ def temperatura(*argv):
         except:
             return "Desculpe cidade não encontrada"
     except:
-        return 'Não foi possivel ver a temperatura'
+        return 'Não foi possível ver a temperatura'
 
 
 def pesquisar_google(comando):
@@ -99,7 +99,7 @@ def pesquisar_google(comando):
         webbrowser.open(f'http://www.google.com/search?client=firefox-b-lm&q={comando}')
         return f'Pesquisei {comando} no Google.'
     except:
-        return 'Não foi possivel pesquisar'
+        return 'Não foi possível pesquisar'
 
 
 def pesquisar_youtube(comando):
@@ -108,7 +108,7 @@ def pesquisar_youtube(comando):
         webbrowser.open(f'https://www.youtube.com/results?search_query={comando}')
         return f'Pesquisei {comando} no Youtube.'
     except:
-        return 'Não foi possivel pesquisar'
+        return 'Não foi possível pesquisar'
 
 
 def fale(text):
@@ -159,7 +159,7 @@ def calculadora(text):
                 text = text.replace("por", "")
         return f"O resultado é {str(eval(text))}"
     except:
-        return 'Não foi possivel calcular'
+        return 'Não foi possível calcular'
 
 
 def diga_hora():
