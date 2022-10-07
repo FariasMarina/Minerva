@@ -52,7 +52,6 @@ def desaparecer_help(a):
     janela.label.setVisible(False)
 
 
-
 def update_display(text):
 
     if "/" in text:

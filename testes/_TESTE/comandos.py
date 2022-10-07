@@ -32,7 +32,7 @@ lista_comandos = {
                       'divida *': func.calculadora,
                       'multiplique *': func.calculadora,
 
-                      'dia é hoje': func.diga_data,
+                      'que dia é hoje': func.diga_data,
                       'data é hoje': func.diga_data,
                       'dia de hoje': func.diga_data,
                       'data de hoje': func.diga_data,
@@ -40,7 +40,7 @@ lista_comandos = {
                       'horas são': func.diga_hora,
                       'horas é': func.diga_hora,
                       'hora são': func.diga_hora,
-                      'hora é': func.diga_hora,
+                      'que hora é': func.diga_hora,
 
                       'adicionar gasto *': financeiro.adicionar,
                       'anotar gasto *': financeiro.adicionar,
@@ -70,7 +70,6 @@ lista_comandos = {
                       'lembrete *': notas.adicionar_lembrete,
                       'me lembre de *': notas.adicionar_lembrete,
                       'lembre *': notas.adicionar_lembrete,
-                      'me lembra de *': notas.adicionar_lembrete,
                       'me da um toque *': notas.adicionar_lembrete,
 
 
@@ -83,7 +82,7 @@ lista_comandos = {
                       'qual a previsão do tempo para *': func.temperatura,
                       'previsão do tempo': func.temperatura,
 
-                      'toque * musica': func.tocar_musica,
+                      'põe pra tocar *': func.tocar_musica,
                       'tocar *': func.tocar_musica,
                       'toque *': func.tocar_musica,
 

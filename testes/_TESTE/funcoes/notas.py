@@ -17,7 +17,7 @@ def criar_banco():
                        '"notas" text not null)')
         banco.commit()
     except:
-        return 'Não foi possivel criar o banco'
+        return 'Não foi possível criar o banco.'
 
 
 criar_banco()
@@ -30,9 +30,9 @@ def adicionar_nota(anotacao):
         dataauto = "-"
         cursor.execute(f"INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)", (dataauto, nome, nota))
         banco.commit()
-        return f'nota {nota} salva'
+        return f'Nota "{nota}" salva.'
     except:
-        return 'Não foi possivel adicionar nota'
+        return 'Não foi possível adicionar a nota.'
 
 
 def mostrar_nota_dia():
@@ -46,9 +46,9 @@ def mostrar_nota_dia():
             tex = str(i)
             texto = tex.replace('(', '').replace(')', '').replace(',', '')
             resposta.append(texto)
-        return f"Voce tem as seguintes notas anotadas, {' e '.join(resposta)}"
+        return f"Voce tem as seguintes notas escritas: '{' e '.join(resposta)}'"
     except:
-        return 'Não foi possivel mostrar a nota'
+        return 'Não foi possível mostrar a nota.'
 
 
 def mostrar_nota_nome(nome):
@@ -62,7 +62,7 @@ def mostrar_nota_nome(nome):
             texto = tex.replace('(', '').replace(')', '').replace(',', '')
             print(texto)
     except:
-        return 'Não foi possivel mostrar nota'
+        return 'Não foi possível mostrar nota.'
 
 
 def mostrar_todas_notas():
@@ -76,9 +76,9 @@ def mostrar_todas_notas():
                 tex = str(i[0])
                 texto = tex.replace('(', '').replace(')', '').replace(',', '')
                 resposta.append(texto)
-        return f"Voce tem as seguintes notas anotadas, {' e '.join(resposta)}"
+        return f"Você tem as seguintes notas escritas: {' e '.join(resposta)}"
     except:
-        return 'Não foi possivel mostrar as notas'
+        return 'Desculpe, não foi possível mostrar as notas.'
 
 
 def adicionar_lembrete(texto):
@@ -113,9 +113,9 @@ def adicionar_lembrete(texto):
 
         temporizador = Timer(data, ler_Lembrete)
         temporizador.start()
-        return 'feito'
+        return 'Feito.'
     except:
-        return 'Não foi possivel adicionar lembrete'
+        return 'Não foi possível adicionar lembrete.'
 
 
 def ler_Lembrete():
@@ -136,10 +136,10 @@ def ler_Lembrete():
                     resposta = texto
         cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
         banco.commit()
-        t.caixa_de_lembrete(f"Se lembre de {resposta.replace('daqui', '').replace('em', '')}")
+        t.caixa_de_lembrete(f"Lembre-se de {resposta.replace('daqui', '').replace('em', '')}")
         t.janela.show()
     except:
-        return 'Não foi possivel ler o lembrete'
+        return 'Não foi possível ler o lembrete.'
 
 
 

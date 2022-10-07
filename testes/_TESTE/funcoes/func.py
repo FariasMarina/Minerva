@@ -121,7 +121,7 @@ def apresentar():
         # TODO: Colar o texto que esta la nos testes
         return "Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Você pode adicionar comandos facilmente acessando meu repositório no guitirub."
     except:
-        return 'Não foi possivel apresentar'
+        return 'Não foi possível apresentar'
 
 def piadas():
     try:
@@ -130,14 +130,14 @@ def piadas():
         #TODO: ver um jeito de fazer ela esperar um pouco antes de dar a resposta
         return random.choice(piadas)
     except:
-        return 'Não foi possivel contar piada'
+        return 'Não foi possível contar piada'
 
 def frases():
     try:
         lista_frases = ['É em meio a dificuldade que se encontra a oportunidade','O êxito é ir de frustração a frustração sem perder a animação','Mesmo que algo pareça difícil, nunca desista antes de tentar','Você é o único que entende as suas dificuldades, por isso motive se a prosseguir','Não é uma vida ruim, é apenas um dia ruim, lembre-se disso','A maior prova de que você pode fazer o impossível, é superar circunstâncias difíceis','Que os dias bons se tornem rotina, e os ruins se tornem raros','É genial celebrar a vitória, contudo é mais significativo aprender com as lições da derrota','Qualquer dificuldade pode ser ultrapassada, já que para todo problema há uma solução','Já pensou que você já superou muitas dificuldades até aqui?','Suas pequenas vitórias são todas as dificuldades superadas durante sua vida, tenha orgulho delas','Cada dificuldade ultrapassada te faz mais forte','Desistir não deve ser considerado, mesmo que as coisas não sejam fáceis']
         return random.choice(lista_frases)
     except:
-        return 'Não foi possivel contar frase'
+        return 'Não foi possível contar frase'
 
 
 def calculadora(text):
@@ -167,14 +167,14 @@ def diga_hora():
         hora = datetime.now().strftime('%H:%M')
         return hora
     except:
-        return 'Não foi possivel ver a hora'
+        return 'Não foi possível ver a hora'
 
 def diga_data():
     try:
         data = datetime.now().strftime('%Y-%m-%d')
         return data
     except:
-        return 'Não foi possivel dizer a data'
+        return 'Não foi possível dizer a data'
 
 def Desligar_pc():
     try:
@@ -183,7 +183,7 @@ def Desligar_pc():
         else:
             os.system("shutdown -h now")
     except:
-        return 'Não foi possivel desligar o pc'
+        return 'Não foi possível desligar o pc'
 
 def Abrir_arquivo(comando):
     try:
@@ -197,5 +197,5 @@ def Abrir_arquivo(comando):
         else:
             return "Caminho não encontrado"
     except:
-        return 'Não foi possivel abrir o arquivo'
+        return 'Não foi possível abrir o arquivo'
 
