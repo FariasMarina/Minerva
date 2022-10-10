@@ -55,7 +55,7 @@ def receber_variaveis(text):
 def receber_audio():
     print(sr.Microphone.list_microphone_names())
     rec = sr.Recognizer()
-    with sr.Microphone(device_index=18) as mic:
+    with sr.Microphone() as mic:
         rec.adjust_for_ambient_noise(mic)
         print("Estou te ouvindo...")
         audio = rec.listen(mic)
