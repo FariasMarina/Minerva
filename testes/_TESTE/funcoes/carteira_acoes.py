@@ -33,28 +33,15 @@ def mostrar_cotacao(acao):
 
 def ver_carteira():
     carteira = pd.read_excel('Carteira.xlsx')
-    data_inicial = umanoatras()
     tab_acoes = {}
+
     for acao in carteira['Ativos']:
-        cotacao = web.DataReader(acao, data_source='yahoo', start=umanoatras(), end=str(date.today()))
+        cotacao = web.DataReader(acao, data_source='yahoo', start=str(date.today()), end=str(date.today()))
         tab_acoes[acao] = cotacao
         carteira.loc[carteira['Ativos'] == acao, 'Valor'] = carteira.loc[carteira['Ativos'] == acao, 'Qtde'].values * \
                                                             cotacao.loc[str(date.today()), 'Adj Close']
 
-    tab_cotacoes = pd.DataFrame()
-    for acao in tab_acoes:
-        tab_cotacoes[acao] = tab_acoes[acao].loc[umanoatras(): str(date.today()), 'Adj Close']
-
-    for acao in tab_cotacoes.columns:
-        tab_cotacoes[acao] = tab_cotacoes[acao] * carteira.loc[carteira['Ativos'] == acao, 'Qtde'].values
-
-    tab_cotacoes['Total'] = tab_cotacoes.sum(axis=1)
-    carteira_ajustado = tab_cotacoes['Total'] / tab_cotacoes['Total'].iloc[0]  # porcentagem da carteira
-    carteira_ajustado.plot()
-    tab_cotacoes.plot()  # porcentagem de cada ação
-
-    retorno_carteira = carteira_ajustado[-1] - 1
-    print(f'Retorno Carteira: {retorno_carteira:.4%}')
+    displayhook(carteira)
 
     dict = {}
     for acao in carteira['Ativos']:
@@ -68,10 +55,9 @@ def ver_carteira():
 
     y = np.array(qtde)
     x = np.array(nome)
+
     plt.barh(x, y)
     plt.show()
-
-    return displayhook(tab_cotacoes)
 
 
 def comparar_cotacoes(acao1, acao2):
@@ -183,8 +169,8 @@ def ver_tab_carteira():
 
 # comparar_cotacao_carteira('ITUB4.SA')  # OK
 # comparar_cotacoes('ITUB4.SA', 'VALE3.SA')  # OK
-# ver_tab_carteira()  # OK
-ver_carteira()  # ADICIONAR GRÁFICO PIZZA PYQT5(mostrar total da carteira)
+#ver_tab_carteira()  # OK
+ver_carteira()
 # mostrar_cotacao('VALE3.SA') #INTEGRAR COM PYQT5 # OK
 # procurar_acao('ibov')
 
