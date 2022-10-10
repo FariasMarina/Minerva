@@ -79,7 +79,7 @@ def temperatura(*argv):
         if argv == () or argv[0] == "":
             cidade = "blumenau"
         else:
-            cidade = argv[0].replace("na", "").replace("no", "")
+            cidade = argv[0].replace("na ", "").replace("no ", "")
         link = f"https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={API_KEY}&lang={'pt_br'}"
         requisicao = requests.get(link)
         requisicao_dic = requisicao.json()

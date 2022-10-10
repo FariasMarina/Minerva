@@ -75,6 +75,11 @@
            <height>500</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(23, 25, 33);
 border-radius: 10px;</string>
@@ -89,7 +94,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>310</y>
+            <y>300</y>
             <width>351</width>
             <height>111</height>
            </rect>
@@ -110,7 +115,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>270</y>
+            <y>260</y>
             <width>351</width>
             <height>39</height>
            </rect>
@@ -299,7 +304,7 @@ border-radius:100px;</string>
           <property name="font">
            <font>
             <family>Century Gothic</family>
-            <pointsize>9</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="styleSheet">
