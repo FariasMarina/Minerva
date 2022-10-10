@@ -46,6 +46,8 @@ def ver_carteira():
         carteira.loc[carteira['Ativos'] == acao, 'Valor'] = carteira.loc[carteira['Ativos'] == acao, 'Qtde'].values * \
                                                             cotacao.loc[str(date.today()), 'Adj Close']
 
+    displayhook(carteira)
+
     dict = {}
     for acao in carteira['Ativos']:
         dict[acao] = float(carteira.loc[carteira['Ativos'] == acao, 'Valor'])
@@ -58,10 +60,9 @@ def ver_carteira():
 
     y = np.array(qtde)
     x = np.array(nome)
+
     plt.barh(x, y)
     plt.show()
-
-    displayhook(carteira)
 
 
 def ver_tab_carteira():
@@ -171,7 +172,7 @@ def comparar_cotacao_carteira(acao1):
 
 # comparar_cotacao_carteira('ITUB4.SA')
 # comparar_cotacoes('ITUB4.SA', 'VALE3.SA')
-#ver_tab_carteira()
+# ver_tab_carteira()
 # ver_carteira()
 # mostrar_cotacao('VALE3.SA')
 # umanoatras()

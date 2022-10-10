@@ -91,7 +91,12 @@ lista_comandos = {
 
                       "procurar ação *": carteira_acoes.procurar_acao,
                       "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
+                      "comparar * e *": carteira_acoes.comparar_cotacoes,
                       "mostrar carteira": carteira_acoes.ver_carteira,
+                      "mostrar tabela da carteira": carteira_acoes.ver_tab_carteira,
+                      "comparar carteira com cotação da *": carteira_acoes.comparar_cotacao_carteira,
+
+
 
 
                       '@ a': 'a', 
