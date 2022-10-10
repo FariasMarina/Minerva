@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>591</width>
-    <height>752</height>
+    <width>573</width>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,10 +89,15 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>350</y>
+            <y>310</y>
             <width>351</width>
-            <height>61</height>
+            <height>111</height>
            </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color:gray;</string>
@@ -105,7 +110,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>310</y>
+            <y>270</y>
             <width>351</width>
             <height>39</height>
            </rect>
@@ -261,6 +266,9 @@ border-radius: 100px;</string>
             <height>51</height>
            </rect>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(0, 0, 0, 0);
 border-radius:100px;</string>
@@ -282,9 +290,9 @@ border-radius:100px;</string>
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>350</y>
-            <width>351</width>
+            <x>110</x>
+            <y>310</y>
+            <width>291</width>
             <height>141</height>
            </rect>
           </property>
@@ -316,8 +324,8 @@ border: 1px; border-color:white; border-style:solid;</string>
          <zorder>line</zorder>
          <zorder>pushButton</zorder>
          <zorder>pushButton_2</zorder>
-         <zorder>label</zorder>
          <zorder>pushButton_3</zorder>
+         <zorder>label</zorder>
         </widget>
        </item>
       </layout>

@@ -13,7 +13,7 @@ def clicked():
     if "*" in a.text():
         janela.lineEdit.setText(a.text().replace("*", ""))
     else:
-        timeline_de_comandos.append(a)
+        timeline_de_comandos.append(a.text())
         janela.label_2.setText(main.run_minerva(input_texto=a.text().replace("@", "").replace("/", "")))
         janela.lineEdit.setText("")
 

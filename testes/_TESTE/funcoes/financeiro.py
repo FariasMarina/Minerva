@@ -27,21 +27,21 @@ def adicionar(text):
             except:
                 pass
         else:
-            return "desculpe, mas nenhum valor foi informado"
+            return "Desculpe, mas nenhum valor foi informado"
 
         for i in range(len(text.split())):
             if text.split()[i] == "com":
                 descricao = ' '.join(text.split()[i+1:])
                 break
         else:
-            descricao = "alguma coisa"
+            descricao = "Alguma coisa"
 
 
         data = datetime.datetime.now()
         dataauto = str(data.date())
         cursor.execute(f"INSERT INTO bancoteste(data, descricao, valor, categoria) VALUES(?,?,?,?)", (dataauto, descricao, valor, categoria))
         banco.commit()
-        return f'adicionado {valor} reais gastos com {descricao}'
+        return f'Adicionado {valor} reais gastos com {descricao}'
     except:
         return 'Não foi possivel adicionar o valor'
 
@@ -52,7 +52,7 @@ def deletar(text):
        id = receber_variaveis('Qual o numero da conta?')
        cursor.execute(f"DELETE FROM bancoteste WHERE id='{id}'")  # deletar dado
        banco.commit()
-       return 'deletado'
+       return 'Deletado'
     # deletar('17')
     except:
         return 'Não foi possivel deletar a conta'
@@ -71,7 +71,7 @@ def soma_total_mes():
         for i in res:
             list.append(float(i[3]))
         soma = sum(list)
-        return f'o total do mês é {soma}'
+        return f'O total do mês é {soma}'
     # soma_total_mes()
     except:
         return 'Não foi possivel fazer a soma'
@@ -125,7 +125,7 @@ def mudar_data(id, ano, mes, dia):
        cursor.execute(f"UPDATE bancoteste SET data='{ano}-{mes}-{dia}' "
                       f"WHERE ID='{id}'") # mudar informações
        banco.commit()
-       return print('mudado')
+       return print('Mudado')
     # mudar_data('40', '2020', '02', '17')
     except:
         return 'Não foi possivel mudar a data'
@@ -136,7 +136,7 @@ def mudar_descricao(id, descricao):
         cursor.execute(f"UPDATE bancoteste SET descricao='{descricao}' "
                        f"WHERE ID='{id}'")
         banco.commit()
-        return print('mudado')
+        return print('Mudado')
     # mudar_descricao('3', 'internet')
     except:
         return 'Não foi possivel mudar a descrição'
@@ -147,7 +147,7 @@ def mudar_valor(id, valor):
         cursor.execute(f"UPDATE bancoteste SET valor='{valor}' "
                        f"WHERE id='{id}'")
         banco.commit()
-        return print('mudado')
+        return print('Mudado')
     # mudar_valor('1', 300)
     except:
         return 'Não foi possivel mudar o valor'
@@ -158,7 +158,7 @@ def mudar_categoria(id, cat):
         cursor.execute(f"UPDATE bancoteste SET categoria='{cat}' "
                        f"WHERE id='{id}'")
         banco.commit()
-        return print('mudado')
+        return print('Mudado')
     # mudar_categoria('1', 'fixo')
     except:
         return 'Não foi possivel mudar a categoria'
@@ -174,7 +174,7 @@ def filtrar_tudo():
         res = cursor.fetchall()
         for i in res:
             print(i)
-        return print('feito')
+        return print('Feito')
     # filtrar_tudo()
     except:
         return 'Não foi possivel filtrar'
@@ -187,7 +187,7 @@ def filtrar_data(ano, mes, dia):
         res = cursor.fetchall()
         for i in res:
             print(i)
-        return print('feito')
+        return print('Feito')
     # filtrar_data('2022', '10', '20')
     except:
         return 'Não foi possivel filtrar'
@@ -200,7 +200,7 @@ def filtrar_data_entre(ano, mes, dia, ano1, mes1, dia1):
         res = cursor.fetchall()
         for i in res:
             print(i)
-        return print('feito')
+        return print('Feito')
     # filtrar_data_entre('2020', '03', '11', '2022', '12', '17') #2020-03-11     2022-12-17
     except:
         return 'Não foi possivel filtrar'
@@ -213,7 +213,7 @@ def filtrar_descricao(descr):
         res = cursor.fetchall()
         for i in res:
             print(i)
-        return print('feito')
+        return print('Feito')
     # filtrar_descricao('energia')
     except:
         return 'Não foi possivel filtrar'
@@ -226,7 +226,7 @@ def filtrar_categoria(cat):
         res = cursor.fetchall()
         for i in res:
             print(i)
-        return print('feito')
+        return print('Feito')
     # filtrar_categoria('fixo')
     except:
         return 'Não foi possivel filtrar'
