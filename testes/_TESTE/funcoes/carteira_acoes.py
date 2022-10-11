@@ -60,7 +60,9 @@ def ver_carteira(a):
     plt.show()
 
 
-def comparar_cotacoes(acao1, acao2):
+def comparar_cotacoes(acao1):
+    acao2= acao1.split()[1]
+    acao1= acao1.split()[0]
     cotacao1 = web.DataReader(f'{acao1}', data_source='yahoo', start=umanoatras(), end=str(date.today()))
     cotacao2 = web.DataReader(f'{acao2}', data_source='yahoo', start=umanoatras(), end=str(date.today()))
 
@@ -126,6 +128,8 @@ def comparar_cotacao_carteira(acao1):
     plt.title('Carteira')
     plt.grid(axis='y')
     plt.show()
+
+
 
 
 def ver_tab_carteira(a):

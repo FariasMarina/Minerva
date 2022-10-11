@@ -65,11 +65,12 @@ lista_comandos = {
                       'fale *': func.fale,
 
                       "procurar ação *": carteira_acoes.procurar_acao,
-                      "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
+                      "comparar carteira com *": carteira_acoes.comparar_cotacao_carteira,
                       "comparar * e *": carteira_acoes.comparar_cotacoes,
+                      "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
                       "mostrar carteira *": carteira_acoes.ver_carteira,
                       "ver tabela da carteira *": carteira_acoes.ver_tab_carteira,
-                      "comparar carteira com cotação da *": carteira_acoes.comparar_cotacao_carteira,
+
 
 
 

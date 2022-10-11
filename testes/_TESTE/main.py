@@ -72,7 +72,7 @@ def receber_audio():
 
 
 def run_minerva(input_microfone=False, input_texto=""):
-	
+    print(input_texto)
     if input_microfone == True:
         comando = receber_audio()
     else:
@@ -131,23 +131,23 @@ def teste_microfone():
         a = receber_audio()
         print(a)
 
-# def tela():
-#     tipo_input = input("[1]Microfone [2]Comando: ")
-#     if tipo_input == "1":
-#         run_minerva(input_microfone=True)
-#     elif tipo_input == "2":
-#         run_minerva(input_texto=input("Digite seu comando:"))
-#     else:
-#         fale("opção invalida")
-#
-#
-#
-# if __name__ == "__main__":
-#     while True:
-#         importlib.reload(rotinas)
-#         importlib.reload(comandos)
-#         lista_comandos = comandos.lista_comandos
-#         tela()
+def tela():
+    tipo_input = input("[1]Microfone [2]Comando: ")
+    if tipo_input == "1":
+        run_minerva(input_microfone=True)
+    elif tipo_input == "2":
+        run_minerva(input_texto=input("Digite seu comando:"))
+    else:
+        fale("opção invalida")
+
+
+
+if __name__ == "__main__":
+    while True:
+        importlib.reload(rotinas)
+        importlib.reload(comandos)
+        lista_comandos = comandos.lista_comandos
+        tela()
 
 
 
