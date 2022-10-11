@@ -5,6 +5,7 @@ from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
 import testes._TESTE.main as main
 
 
+
 timeline_de_comandos = []
 
 def clicked():
@@ -16,6 +17,8 @@ def clicked():
         timeline_de_comandos.append(a.text())
         janela.label_2.setText(main.run_minerva(input_texto=a.text().replace("@", "").replace("/", "")))
         janela.lineEdit.setText("")
+
+
 
 
 def clicked_by_enter():
@@ -138,3 +141,4 @@ if __name__ == "__main__":
 
 
     app.exec()
+

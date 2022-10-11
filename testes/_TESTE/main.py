@@ -3,6 +3,7 @@ import azure.cognitiveservices.speech as speechsdk
 import speech_recognition as sr
 
 import importlib
+import unidecode
 
 from testes._TESTE.funcoes import rotinas
 import comandos
@@ -62,10 +63,12 @@ def receber_audio():
         try:
             print("Trancrevendo...")
             frase = rec.recognize_google(audio, language="pt-BR")
+            frase = unidecode.unidecode(frase)
         except:
+            print("AQUI")
             print("Erro no recebimento de áudio")
             return "erro"
-        return frase.lower()
+        print(frase.lower())
 
 
 def run_minerva(input_microfone=False, input_texto=""):

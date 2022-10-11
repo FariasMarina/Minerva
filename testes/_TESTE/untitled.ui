@@ -130,10 +130,11 @@ border-radius: 10px;</string>
            <font>
             <family>Century Gothic</family>
             <pointsize>11</pointsize>
+            <italic>true</italic>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(54, 54, 54);
+           <string notr="true">background-color: rgb(54, 54, );
 border-radius:10px;
 padding-left: 10px;
 </string>
@@ -295,8 +296,8 @@ border-radius:100px;</string>
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>310</y>
+            <x>100</x>
+            <y>300</y>
             <width>291</width>
             <height>141</height>
            </rect>

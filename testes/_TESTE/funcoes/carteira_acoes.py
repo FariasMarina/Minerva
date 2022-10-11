@@ -31,7 +31,7 @@ def mostrar_cotacao(acao):
     plt.show()
 
 
-def ver_carteira():
+def ver_carteira(a):
     carteira = pd.read_excel('Carteira.xlsx')
     tab_acoes = {}
 
@@ -58,6 +58,7 @@ def ver_carteira():
 
     plt.barh(x, y)
     plt.show()
+
 
 
 def comparar_cotacoes(acao1, acao2):
@@ -170,7 +171,7 @@ def ver_tab_carteira():
 # comparar_cotacao_carteira('ITUB4.SA')  # OK
 # comparar_cotacoes('ITUB4.SA', 'VALE3.SA')  # OK
 #ver_tab_carteira()  # OK
-ver_carteira()
+# ver_carteira()
 # mostrar_cotacao('VALE3.SA') #INTEGRAR COM PYQT5 # OK
 # procurar_acao('ibov')
 
