@@ -1,16 +1,15 @@
 from testes._TESTE.funcoes import carteira_acoes, financeiro, func, notas
-import matplotlib.pyplot as plt
 
 lista_comandos = {
                       'criar rotina': func.criar_rotina,
 
                       'pesquise * no youtube': func.pesquisar_youtube,
-                      'pesquise video de *': func.pesquisar_youtube,
-                      'pesquise video da *': func.pesquisar_youtube,
-                      'pesquise video do *': func.pesquisar_youtube,
-                      'pesquise videos de *': func.pesquisar_youtube,
-                      'pesquise videos da *': func.pesquisar_youtube,
-                      'pesquise videos do *': func.pesquisar_youtube,
+                      'pesquise vídeo de *': func.pesquisar_youtube,
+                      'pesquise vídeo da *': func.pesquisar_youtube,
+                      'pesquise vídeo do *': func.pesquisar_youtube,
+                      'pesquise vídeos de *': func.pesquisar_youtube,
+                      'pesquise vídeos da *': func.pesquisar_youtube,
+                      'pesquise vídeos do *': func.pesquisar_youtube,
 
 
                       'pesquise *': func.pesquisar_google,
@@ -35,8 +34,8 @@ lista_comandos = {
                       'dia de hoje': func.diga_data,
                       'data de hoje': func.diga_data,
 
-                      'que horas sao': func.diga_hora,
-                      'que hora e': func.diga_hora,
+                      'que horas são': func.diga_hora,
+                      'que hora é': func.diga_hora,
 
                       'adicionar gasto *': financeiro.adicionar,
                       'anotar gasto *': financeiro.adicionar,
@@ -44,8 +43,8 @@ lista_comandos = {
 
                       'listar gastos': financeiro.listar_gastos_mes,
 
-                      'total de gastos do mes': financeiro.soma_total_mes,
-                      'soma de gastos do mes': financeiro.soma_total_mes,
+                      'total de gastos do mês': financeiro.soma_total_mes,
+                      'soma de gastos do mês': financeiro.soma_total_mes,
 
                       'anote *': notas.adicionar_nota,
 
@@ -65,12 +64,12 @@ lista_comandos = {
 
                       'fale *': func.fale,
 
-                      "procurar açao *": carteira_acoes.procurar_acao,
-                      "mostrar cotaçao da *": carteira_acoes.mostrar_cotacao,
+                      "procurar ação *": carteira_acoes.procurar_acao,
+                      "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
                       "comparar * e *": carteira_acoes.comparar_cotacoes,
                       "mostrar carteira *": carteira_acoes.ver_carteira,
-                      "mostrar tabela da carteira": carteira_acoes.ver_tab_carteira,
-                      "comparar carteira com cotaçao da *": carteira_acoes.comparar_cotacao_carteira,
+                      "ver tabela da carteira *": carteira_acoes.ver_tab_carteira,
+                      "comparar carteira com cotação da *": carteira_acoes.comparar_cotacao_carteira,
 
 
 

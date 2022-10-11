@@ -60,7 +60,6 @@ def ver_carteira(a):
     plt.show()
 
 
-
 def comparar_cotacoes(acao1, acao2):
     cotacao1 = web.DataReader(f'{acao1}', data_source='yahoo', start=umanoatras(), end=str(date.today()))
     cotacao2 = web.DataReader(f'{acao2}', data_source='yahoo', start=umanoatras(), end=str(date.today()))
@@ -129,7 +128,7 @@ def comparar_cotacao_carteira(acao1):
     plt.show()
 
 
-def ver_tab_carteira():
+def ver_tab_carteira(a):
     carteira = pd.read_excel('Carteira.xlsx')
     data_inicial = umanoatras()
     tab_acoes = {}
@@ -168,11 +167,11 @@ def ver_tab_carteira():
 
 
 
-# comparar_cotacao_carteira('ITUB4.SA')  # OK
-# comparar_cotacoes('ITUB4.SA', 'VALE3.SA')  # OK
+# comparar_cotacao_carteira('ITUB4.SA')
+# comparar_cotacoes('ITUB4.SA', 'VALE3.SA')
 #ver_tab_carteira()  # OK
-# ver_carteira()
-# mostrar_cotacao('VALE3.SA') #INTEGRAR COM PYQT5 # OK
-# procurar_acao('ibov')
+# ver_carteira() # OK
+# mostrar_cotacao('VALE3.SA') # OK
+# procurar_acao('ibov') #OK
 
 
