@@ -5,7 +5,7 @@ import speech_recognition as sr
 import importlib
 import unidecode
 
-from testes._TESTE.funcoes import rotinas
+from testes._TESTE import rotinas
 import comandos
 
 lista_comandos = comandos.lista_comandos
@@ -65,9 +65,8 @@ def receber_audio():
             frase = rec.recognize_google(audio, language="pt-BR")
             frase = unidecode.unidecode(frase)
             print(frase)
-            return frase
+            return frase.lower()
         except:
-            print("AQUI")
             print("Erro no recebimento de áudio")
             return "erro"
 
@@ -116,6 +115,7 @@ def run_minerva(input_microfone=False, input_texto=""):
                 break
 
         else:
+
             if chave in comando:
                 resposta = lista_comandos[chave]()
                 fale(resposta)
@@ -144,7 +144,7 @@ def tela():
 
 if __name__ == "__main__":
     while True:
-        teste_microfone()
+        # teste_microfone()
         importlib.reload(rotinas)
         importlib.reload(comandos)
         lista_comandos = comandos.lista_comandos

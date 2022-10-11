@@ -75,7 +75,6 @@ lista_comandos = {
 
 
 
-                      '@ a': 'a', 
-                      '@ a': 'a', 
+                      '@ joao': 'joao', 
 }
 

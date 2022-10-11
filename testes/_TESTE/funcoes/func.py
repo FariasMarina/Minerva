@@ -21,7 +21,7 @@ def criar_rotina():
     #    for i in lista_comandos.values():
     #        comandos_cadastrados.append(i.__name__)
     #        print(func.__file__)
-
+        print("1")
         with open("rotinas.py", "a") as arquivo:
             arquivo.write(f"\n\ndef {nome_funcao}():\n    return [\n")
             for i in funcoes:
@@ -30,12 +30,12 @@ def criar_rotina():
     #            else:
     #                print("comando nao cadastrado " + i)
             arquivo.write(f"]\n")
-
-        with open("testes/_TESTE/comandos.py", "r") as f:
+        print("2")
+        with open("comandos.py", "r") as f:
             contents = f.readlines()
 
-        contents.insert(-2, f"                      '@ {nome_rotina}': '{nome_funcao}', \n")
-
+            contents.insert(-2, f"                      '@ {nome_rotina}': '{nome_funcao}', \n")
+        print("3")
         with open("comandos.py", "w") as f:
             contents = "".join(contents)
             f.write(contents)
