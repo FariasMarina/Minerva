@@ -31,7 +31,7 @@ def mostrar_cotacao(acao):
     plt.show()
 
 
-def ver_carteira(a):
+def ver_carteira():
     carteira = pd.read_excel('Carteira.xlsx')
     tab_acoes = {}
 
@@ -58,6 +58,7 @@ def ver_carteira(a):
 
     plt.barh(x, y)
     plt.show()
+    return "Feito"
 
 
 def comparar_cotacoes(acao1):
@@ -91,6 +92,8 @@ def comparar_cotacoes(acao1):
 
 
 def comparar_cotacao_carteira(acao1):
+    acao1 = acao1.upper()
+    print(acao1)
     carteira = pd.read_excel('Carteira.xlsx')
     data_inicial = umanoatras()
     tab_acoes = {}
@@ -132,7 +135,7 @@ def comparar_cotacao_carteira(acao1):
 
 
 
-def ver_tab_carteira(a):
+def ver_tab_carteira():
     carteira = pd.read_excel('Carteira.xlsx')
     data_inicial = umanoatras()
     tab_acoes = {}
@@ -167,6 +170,8 @@ def ver_tab_carteira(a):
     plt.grid(axis='y')
     plt.legend()
     plt.show()
+
+    return 'Feito'
 
 
 

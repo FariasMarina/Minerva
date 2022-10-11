@@ -54,7 +54,7 @@ def receber_variaveis(text):
 
 
 def receber_audio():
-    print(sr.Microphone.list_microphone_names())
+    # print(sr.Microphone.list_microphone_names())
     rec = sr.Recognizer()
     with sr.Microphone() as mic:
         rec.adjust_for_ambient_noise(mic)
@@ -64,15 +64,15 @@ def receber_audio():
             print("Trancrevendo...")
             frase = rec.recognize_google(audio, language="pt-BR")
             frase = unidecode.unidecode(frase)
+            print(frase)
+            return frase
         except:
             print("AQUI")
             print("Erro no recebimento de áudio")
             return "erro"
-        print(frase.lower())
 
 
 def run_minerva(input_microfone=False, input_texto=""):
-    print(input_texto)
     if input_microfone == True:
         comando = receber_audio()
     else:
@@ -144,6 +144,7 @@ def tela():
 
 if __name__ == "__main__":
     while True:
+        teste_microfone()
         importlib.reload(rotinas)
         importlib.reload(comandos)
         lista_comandos = comandos.lista_comandos

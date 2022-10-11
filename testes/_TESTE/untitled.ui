@@ -94,7 +94,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>300</y>
+            <y>340</y>
             <width>351</width>
             <height>111</height>
            </rect>
@@ -115,7 +115,7 @@ border-radius: 10px;</string>
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>260</y>
+            <y>300</y>
             <width>351</width>
             <height>39</height>
            </rect>
@@ -164,35 +164,6 @@ font-size:20px;</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="Line" name="line">
-          <property name="geometry">
-           <rect>
-            <x>-100</x>
-            <y>260</y>
-            <width>1000</width>
-            <height>1</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>1000</width>
-            <height>1</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>1000</width>
-            <height>1</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: #3A3636; 
-border-radius: 2 px</string>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
          <widget class="QPushButton" name="pushButton">
@@ -267,7 +238,7 @@ border-radius: 100px;</string>
           <property name="geometry">
            <rect>
             <x>390</x>
-            <y>430</y>
+            <y>440</y>
             <width>51</width>
             <height>51</height>
            </rect>
@@ -296,9 +267,9 @@ border-radius:100px;</string>
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>300</y>
-            <width>291</width>
+            <x>50</x>
+            <y>340</y>
+            <width>341</width>
             <height>141</height>
            </rect>
           </property>
@@ -327,7 +298,6 @@ border: 1px; border-color:white; border-style:solid;</string>
          <zorder>label_2</zorder>
          <zorder>listWidget</zorder>
          <zorder>lineEdit</zorder>
-         <zorder>line</zorder>
          <zorder>pushButton</zorder>
          <zorder>pushButton_2</zorder>
          <zorder>pushButton_3</zorder>

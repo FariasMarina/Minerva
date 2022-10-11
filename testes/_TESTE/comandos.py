@@ -43,8 +43,8 @@ lista_comandos = {
 
                       'listar gastos': financeiro.listar_gastos_mes,
 
-                      'total de gastos do mês': financeiro.soma_total_mes,
-                      'soma de gastos do mês': financeiro.soma_total_mes,
+                      'total de gastos do mes': financeiro.soma_total_mes,
+                      'soma de gastos do mes': financeiro.soma_total_mes,
 
                       'anote *': notas.adicionar_nota,
 
@@ -64,12 +64,12 @@ lista_comandos = {
 
                       'fale *': func.fale,
 
-                      "procurar ação *": carteira_acoes.procurar_acao,
+                      "procurar acao *": carteira_acoes.procurar_acao,
                       "comparar carteira com *": carteira_acoes.comparar_cotacao_carteira,
                       "comparar * e *": carteira_acoes.comparar_cotacoes,
-                      "mostrar cotação da *": carteira_acoes.mostrar_cotacao,
-                      "mostrar carteira *": carteira_acoes.ver_carteira,
-                      "ver tabela da carteira *": carteira_acoes.ver_tab_carteira,
+                      "mostrar cotacao da *": carteira_acoes.mostrar_cotacao,
+                      "mostrar carteira": carteira_acoes.ver_carteira,
+                      "ver tabela da carteira": carteira_acoes.ver_tab_carteira,
 
 
 
