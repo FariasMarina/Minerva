@@ -13,6 +13,8 @@ lista_comandos = comandos.lista_comandos
 def receber_lista_comandos_atualizada():
     importlib.reload(comandos)
     importlib.reload(rotinas)
+    global lista_comandos
+    lista_comandos = comandos.lista_comandos
     return comandos.lista_comandos.keys()
 
 def executar_rotina(nome_rotina):
@@ -78,8 +80,7 @@ def run_minerva(input_microfone=False, input_texto=""):
         comando = input_texto
 
 #IMPORTANTE LEMBRAR DE COMANDOS COM MAIS ARGUMENTOS [*] MAIS EM CIMA
-
-
+    print(lista_comandos.keys())
     for chave in lista_comandos.keys():
         if "*" in chave: #verifico se o comando precisa de argumentos
    
