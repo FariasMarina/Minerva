@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Lembrete</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Logo_Minerva_peq(1).png</normaloff>Logo_Minerva_peq(1).png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(23, 25, 33)</string>
@@ -38,7 +42,10 @@
         <string notr="true">color: yellow</string>
        </property>
        <property name="text">
-        <string>   💡</string>
+        <string>💡</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -51,10 +58,13 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white; padding: 10px;</string>
+        <string notr="true">color:#AF2567;; padding: 10px;</string>
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
