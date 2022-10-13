@@ -147,9 +147,9 @@ padding-left: 10px;
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>360</y>
+            <y>340</y>
             <width>351</width>
-            <height>81</height>
+            <height>141</height>
            </rect>
           </property>
           <property name="layoutDirection">
@@ -289,7 +289,7 @@ border: 1px; border-color:white; border-style:solid;</string>
  
 - Clique no campo de texto caso queira digitar; 
  
-- Toque no ícone de microfone para gravar sua voz.</string>
+- Toque no ícone de microfone ou use ctrl+shift+Z para gravar sua voz.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
