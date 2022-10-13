@@ -82,6 +82,7 @@ def mostrar_todas_notas():
 
 
 def adicionar_lembrete(texto):
+
     try:
 
         texto2 = texto.split()
@@ -110,36 +111,40 @@ def adicionar_lembrete(texto):
         lembrete = texto3.replace(str(data), "")
         cursor.execute('INSERT INTO Notas(data, nome, notas) VALUES(?,?,?)', (data, nome, lembrete))
         banco.commit()
-
+        print("Lembrete adicionado")
         temporizador = Timer(data, ler_Lembrete)
         temporizador.start()
+
         return 'feito'
     except:
         return 'Não foi possivel adicionar lembrete'
 
 
 def ler_Lembrete():
+    print("TENTANDO LER LEMBRETE")
     import testes._TESTE.ui_main as t
-    try:
-        cursor.execute(f"SELECT notas, data, ID FROM Notas")
-        res = cursor.fetchall()
-        resposta = None
-        nota_mais_recente = 1000000
-        id_nota_resposta = 0
-        for i in res:
-            if i[1] != '-':
-                if int(nota_mais_recente) > int(i[1]):
-                    nota_mais_recente = i[1]
-                    id_nota_resposta = i[2]
-                    tex = str(i[0])
-                    texto = tex.replace('(', '').replace(')', '').replace(',', '')
-                    resposta = texto
-        cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
-        banco.commit()
-        t.caixa_de_lembrete(f"Se lembre de {resposta.replace('daqui', '').replace('em', '')}")
-        t.janela.show()
-    except:
-        return 'Não foi possivel ler o lembrete'
+    # try:
+    cursor.execute(f"SELECT notas, data, ID FROM Notas")
+    res = cursor.fetchall()
+    resposta = None
+    nota_mais_recente = 1000000
+    id_nota_resposta = 0
+    for i in res:
+        if i[1] != '-':
+            if int(nota_mais_recente) > int(i[1]):
+                nota_mais_recente = i[1]
+                id_nota_resposta = i[2]
+                tex = str(i[0])
+                texto = tex.replace('(', '').replace(')', '').replace(',', '')
+                resposta = texto
+    cursor.execute('DELETE FROM Notas WHERE ID=?', (id_nota_resposta, ))
+    banco.commit()
+    print(resposta)
+    t.caixa_de_lembrete(f"Se lembre de {resposta.replace('daqui', '').replace('em', '')}")
+    print("LEMBRETE LIDO")
+        # t.janela.show()
+    # except:
+    #     print('Não foi possivel ler o lembrete')
 
 
 
