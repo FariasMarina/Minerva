@@ -10,12 +10,15 @@ import os
 
 
 
+def a(nome_rotina, funcoes):
+    print("DEF A")
 
-def criar_rotina():
+
+
     try:
-        nome_rotina = input("Nome função: ")
+        nome_rotina = nome_rotina
         nome_funcao= nome_rotina.replace(" ", "_")
-        funcoes = input("Lista com funcoes: ").split(",")
+        funcoes = funcoes.split(", ")
 
     #    comandos_cadastrados = []
     #    for i in lista_comandos.values():
@@ -42,6 +45,10 @@ def criar_rotina():
         return f"Rotina {nome_rotina} adicionada com sucesso"
     except:
         return 'Não foi possivel criar a rotina'
+
+def criar_rotina():
+    import testes._TESTE.ui_main as t
+    return t.aparecer_cadastro_rotina()
 
 
 
