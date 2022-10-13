@@ -126,7 +126,7 @@ def fale(text):
 def apresentar():
     try:
         # TODO: Colar o texto que esta la nos testes
-        return "Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Você pode adicionar comandos facilmente acessando meu repositório no guitirub."
+        return "Olá, meu nome é Minerva! Sou uma assistente virtual open source feita em Python. Você pode adicionar comandos facilmente acessando meu repositório no guitirrãb."
     except:
         return 'Não foi possivel apresentar'
 
