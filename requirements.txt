@@ -1,5 +1,8 @@
 azure-cognitiveservices-speech==1.23.0
 PyAudio==0.2.12
 SpeechRecognition==3.8.1
-
-
+PyQt5
+Unidecode
+numpy
+pandas
+requests
