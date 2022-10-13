@@ -3,17 +3,17 @@ from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import Qt, QSortFilterProxyModel, QEvent
 from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
 import main
+import keyboard
+
+
 
 def aparecer_cadastro_rotina():
-
-
     global rotina
     rotina = uic.loadUi("rotina.ui")
 
     rotina.pushButton.clicked.connect(chamar_cadastrar_rotina)
     # print(bool(rotina.pushButton.clicked))
-    rotina.lineEdit.textChanged.connect(lambda : print("!"))
-
+    rotina.lineEdit.textChanged.connect(lambda: print("!"))
 
     rotina.show()
     return "Preencha os campos para cadastrar uma nova rotina"
@@ -26,10 +26,8 @@ def chamar_cadastrar_rotina():
     t.a(rotina.lineEdit.text(), rotina.lineEdit_2.text())
 
 
-
-
-
 timeline_de_comandos = []
+
 
 def clicked():
     a = janela.listWidget.currentItem()
@@ -42,8 +40,6 @@ def clicked():
         janela.lineEdit.setText("")
 
 
-
-
 def clicked_by_enter():
     global index_timeline
     a = janela.lineEdit.text()
@@ -54,19 +50,16 @@ def clicked_by_enter():
 
 
 def clicked_on_microphone():
-    aparecer_cadastro_rotina()
-    caixa_de_lembrete("teste")
-    # try:
-    #     janela.label_2.setText(main.run_minerva(input_microfone=True))
-    # except:
-    #     janela.label_2.setText("Nenhum microfone reconhecido")
+    try:
+        janela.label_2.setText(main.run_minerva(input_microfone=True))
+    except:
+        janela.label_2.setText("Nenhum microfone reconhecido")
 
 
 def caixa_de_lembrete(a):
     print("TENTANDO MOSTRAR LEMBRETE")
 
-    # app2 = QApplication([])
-
+    app2 = QApplication([])
 
     global lembrete
     lembrete = uic.loadUi("lembrete.ui")
@@ -74,18 +67,16 @@ def caixa_de_lembrete(a):
 
     lembrete.show()
 
-    # app2.exec()
-
-
-
+    app2.exec()
 
 
 def aparecer_help(a):
     janela.label.setVisible(True)
+
+
 #
 def desaparecer_help(a):
     janela.label.setVisible(False)
-
 
 
 def update_display(text):
@@ -94,16 +85,11 @@ def update_display(text):
         janela.listWidget.setVisible(True)
         text = text.replace("/", "")
 
-
-
         comandos_filtro = []
-
 
         for widget in comandos:
             if text.lower() in widget.lower():
-
                 comandos_filtro.append(widget)
-
 
         janela.listWidget.clear()
         for i in comandos_filtro:
@@ -112,19 +98,22 @@ def update_display(text):
     else:
         janela.listWidget.setVisible(False)
 
+
 index_timeline = 0
+
 
 def timeline(event):
     global index_timeline
 
     if event.key() == 16777235:
         try:
-            if index_timeline >= (len(timeline_de_comandos)-1) * -1:
+            if index_timeline >= (len(timeline_de_comandos) - 1) * -1:
                 index_timeline -= 1
 
             janela.lineEdit.setText(timeline_de_comandos[index_timeline])
 
-        except: pass
+        except:
+            pass
 
     elif event.key() == 16777237:
         try:
@@ -136,8 +125,8 @@ def timeline(event):
                 janela.lineEdit.setText("")
                 index_timeline = 0
 
-        except: pass
-
+        except:
+            pass
 
 
 if __name__ == "__main__":
@@ -146,14 +135,11 @@ if __name__ == "__main__":
     lembrete = uic.loadUi("lembrete.ui")
     rotina = uic.loadUi("rotina.ui")
 
-    modelo = QStandardItemModel(12,1)
+    modelo = QStandardItemModel(12, 1)
 
     comandos = main.receber_lista_comandos_atualizada()
 
-
     janela.listWidget.clicked.connect(clicked)
-
-
 
     janela.lineEdit.textChanged.connect(update_display)
     janela.lineEdit.returnPressed.connect(clicked_by_enter)
@@ -163,8 +149,6 @@ if __name__ == "__main__":
     janela.pushButton_3.enterEvent = aparecer_help
     janela.pushButton_3.leaveEvent = desaparecer_help
 
-
-
     # janela.pushButton.setIcon(QIcon('logo.png'))
 
     janela.listWidget.setVisible(False)
@@ -172,6 +156,7 @@ if __name__ == "__main__":
 
     janela.show()
 
-
+    keyboard.add_hotkey('ctrl + shift + z', clicked_on_microphone)
     app.exec()
+
 

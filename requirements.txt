@@ -6,3 +6,6 @@ Unidecode
 numpy
 pandas
 requests
+alpha-vantage
+pandas-datareader
+matplotlib
