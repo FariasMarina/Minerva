@@ -2,7 +2,30 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import Qt, QSortFilterProxyModel, QEvent
 from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
-import testes._TESTE.main as main
+import main
+
+def aparecer_cadastro_rotina():
+
+
+    global rotina
+    rotina = uic.loadUi("rotina.ui")
+
+    rotina.pushButton.clicked.connect(chamar_cadastrar_rotina)
+    # print(bool(rotina.pushButton.clicked))
+    rotina.lineEdit.textChanged.connect(lambda : print("!"))
+
+
+    rotina.show()
+    return "Preencha os campos para cadastrar uma nova rotina"
+
+
+def chamar_cadastrar_rotina():
+    import testes._TESTE.funcoes.func as t
+    global rotina
+    rotina.close()
+    t.a(rotina.lineEdit.text(), rotina.lineEdit_2.text())
+
+
 
 
 
@@ -31,22 +54,31 @@ def clicked_by_enter():
 
 
 def clicked_on_microphone():
-    try:
-        janela.label_2.setText(main.run_minerva(input_microfone=True))
-    except:
-        janela.label_2.setText("Nenhum microfone reconhecido")
+    aparecer_cadastro_rotina()
+    caixa_de_lembrete("teste")
+    # try:
+    #     janela.label_2.setText(main.run_minerva(input_microfone=True))
+    # except:
+    #     janela.label_2.setText("Nenhum microfone reconhecido")
 
 
 def caixa_de_lembrete(a):
+    print("TENTANDO MOSTRAR LEMBRETE")
 
-    app2 = QApplication([])
+    # app2 = QApplication([])
 
+
+    global lembrete
     lembrete = uic.loadUi("lembrete.ui")
     lembrete.label_2.setText(a)
 
     lembrete.show()
 
-    app2.exec()
+    # app2.exec()
+
+
+
+
 
 def aparecer_help(a):
     janela.label.setVisible(True)
@@ -57,12 +89,12 @@ def desaparecer_help(a):
 
 
 def update_display(text):
-
+    comandos = main.receber_lista_comandos_atualizada()
     if "/" in text:
         janela.listWidget.setVisible(True)
         text = text.replace("/", "")
 
-        comandos = main.receber_lista_comandos_atualizada()
+
 
         comandos_filtro = []
 
@@ -107,11 +139,12 @@ def timeline(event):
         except: pass
 
 
+
 if __name__ == "__main__":
     app = QApplication([])
     janela = uic.loadUi("untitled.ui")
     lembrete = uic.loadUi("lembrete.ui")
-
+    rotina = uic.loadUi("rotina.ui")
 
     modelo = QStandardItemModel(12,1)
 
@@ -141,6 +174,4 @@ if __name__ == "__main__":
 
 
     app.exec()
-
-
 
