@@ -1,6 +1,7 @@
 from testes._TESTE.funcoes import carteira_acoes, financeiro, func, notas
 
 lista_comandos = {
+                      'fale *': func.fale,
                       'criar rotina': func.criar_rotina,
 
                       'pesquise * no youtube': func.pesquisar_youtube,
@@ -62,8 +63,6 @@ lista_comandos = {
                       'tocar *': func.tocar_musica,
                       'toque *': func.tocar_musica,
 
-                      'fale *': func.fale,
-
                       "procurar acao *": carteira_acoes.procurar_acao,
                       "comparar carteira com *": carteira_acoes.comparar_cotacao_carteira,
                       "comparar * e *": carteira_acoes.comparar_cotacoes,
@@ -74,8 +73,5 @@ lista_comandos = {
 
 
 
-
-                      '@ joao': 'joao', 
-                      '@ teste 05': 'teste_05', 
 }
 

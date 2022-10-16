@@ -10,23 +10,64 @@ import keyboard
 def aparecer_cadastro_rotina():
     global rotina
     rotina = uic.loadUi("rotina.ui")
-
+    rotina.listWidget.setVisible(False)
     rotina.pushButton.clicked.connect(chamar_cadastrar_rotina)
     # print(bool(rotina.pushButton.clicked))
-    rotina.lineEdit.textChanged.connect(lambda: print("!"))
-
+    rotina.lineEdit_2.textChanged.connect(update_display_rotina)
+    rotina.listWidget.clicked.connect(clicked_rotina)
+    rotina.listWidget.clicked.connect(clicked_rotina)
+    rotina.pushButton_2.clicked.connect(adicionar_item_lista_e_limpar_linha)
+    rotina.pushButton_3.clicked.connect(deletar_item_lista)
     rotina.show()
     return "Preencha os campos para cadastrar uma nova rotina"
+
+
+
+def deletar_item_lista():
+    item = rotina.listWidget_2.currentRow()
+    print(item)
+    rotina.listWidget_2.takeItem(item)
+def adicionar_item_lista_e_limpar_linha():
+    rotina.listWidget_2.insertItem(rotina.listWidget_2.count(), rotina.lineEdit_2.text())
+    rotina.lineEdit_2.setText("")
+
+
+def update_display_rotina():
+    text = rotina.lineEdit_2.text()
+    comandos = main.receber_lista_comandos_atualizada()
+    if "/" in text:
+        rotina.listWidget.setVisible(True)
+        text = text.replace("/", "")
+
+        comandos_filtro = []
+
+        for widget in comandos:
+            if text.lower() in widget.lower():
+                comandos_filtro.append(widget)
+
+        rotina.listWidget.clear()
+        for i in comandos_filtro:
+            rotina.listWidget.insertItem(2, i)
+
+    else:
+        rotina.listWidget.setVisible(False)
 
 
 def chamar_cadastrar_rotina():
     import testes._TESTE.funcoes.func as t
     global rotina
     rotina.close()
-    t.a(rotina.lineEdit.text(), rotina.lineEdit_2.text())
+    items = [rotina.listWidget_2.item(x).text() for x in range(rotina.listWidget_2.count())]
+    t.a(rotina.lineEdit.text(), ", ".join(items))
 
 
 timeline_de_comandos = []
+
+
+def clicked_rotina():
+    a = rotina.listWidget.currentItem()
+
+    rotina.lineEdit_2.setText(a.text().replace("*", ""))
 
 
 def clicked():
@@ -156,7 +197,7 @@ if __name__ == "__main__":
 
     janela.show()
 
-    keyboard.add_hotkey('ctrl + shift + z', clicked_on_microphone)
+    # keyboard.add_hotkey('ctrl + shift + z', clicked_on_microphone)
     app.exec()
 
 
