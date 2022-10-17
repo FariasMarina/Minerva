@@ -72,6 +72,6 @@ lista_comandos = {
 
 
 
-
+                      '@ mostrar patos': 'mostrar_patos', 
 }
 

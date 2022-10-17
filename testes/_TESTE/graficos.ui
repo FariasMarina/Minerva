@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>919</width>
+    <width>923</width>
     <height>538</height>
    </rect>
   </property>
@@ -18,38 +18,27 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-1</y>
-      <width>921</width>
-      <height>541</height>
+      <x>10</x>
+      <y>10</y>
+      <width>901</width>
+      <height>511</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>1</number>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>891</width>
-        <height>481</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
+    <property name="styleSheet">
+     <string notr="true">QTableView::item{ color:white; background:#000000; font-weight:900; }
+QTableCornerButton::section { background-color:#232326; }
+QHeaderView::section { color:white; background-color:#232326; }
+</string>
+    </property>
    </widget>
   </widget>
  </widget>
