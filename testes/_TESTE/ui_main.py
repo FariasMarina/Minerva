@@ -3,8 +3,45 @@ from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import Qt, QSortFilterProxyModel, QEvent
 from PyQt5.QtGui import QStandardItem, QStandardItemModel, QIcon
 import main
+
+from matplotlib.backends.qt_compat import QtWidgets
+from matplotlib.backends.backend_qtagg import (
+    FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+from matplotlib.figure import Figure
 import keyboard
 
+
+
+
+def aparecer_graficos(title, ylabel, primeiro_arg, segundo_arg,
+                      dois_graficos = False, title2 = None, ylabel2 = None, primeiro_arg2 = None, segundo_arg2 = None,
+                      barra = False):
+    layout = QtWidgets.QVBoxLayout(grafico.tab)
+
+    static_canvas = FigureCanvas(Figure(figsize=(7, 3)))
+
+
+    # layout.addWidget(static_canvas, janela)) #adicionando navegaçao
+    layout.addWidget(static_canvas)  # adicionando tabela
+
+
+
+    grafico._static_ax = static_canvas.figure.subplots()
+
+    grafico._static_ax.set_title(title)
+    grafico._static_ax.set_ylabel(ylabel)
+    grafico._static_ax.plot(primeiro_arg, segundo_arg)
+
+    if dois_graficos:
+        static_canvas2 = FigureCanvas(Figure(figsize=(7, 3)))
+        layout.addWidget(static_canvas2)  # adicionando tabela
+        grafico._static_ax2 = static_canvas2.figure.subplots()
+        grafico._static_ax2.set_title(title2)
+        grafico._static_ax2.set_ylabel(ylabel2)
+        grafico._static_ax2.plot(primeiro_arg2, segundo_arg2)
+
+    grafico.show()
+    return "teste"
 
 
 def aparecer_cadastro_rotina():
@@ -61,7 +98,7 @@ def chamar_cadastrar_rotina():
     t.a(rotina.lineEdit.text(), ", ".join(items))
 
 
-timeline_de_comandos = []
+timeline_de_comandos = ["comparar ITUB4.SA e VALE3.SA"]
 
 
 def clicked_rotina():
@@ -176,6 +213,18 @@ if __name__ == "__main__":
     lembrete = uic.loadUi("lembrete.ui")
     rotina = uic.loadUi("rotina.ui")
 
+    grafico = uic.loadUi("graficos.ui")
+
+    layout = QtWidgets.QVBoxLayout(grafico.tab)
+
+    static_canvas = FigureCanvas(Figure(figsize=(7, 3)))
+    static_canvas2 = FigureCanvas(Figure(figsize=(7, 3)))
+
+    # layout.addWidget(static_canvas, janela)) #adicionando navegaçao
+    layout.addWidget(static_canvas)  # adicionando tabela
+    layout.addWidget(static_canvas2)  # adicionando tabela
+
+
     modelo = QStandardItemModel(12, 1)
 
     comandos = main.receber_lista_comandos_atualizada()
@@ -196,8 +245,12 @@ if __name__ == "__main__":
     janela.label.setVisible(False)
 
     janela.show()
+    # print(aparecer_graficos("acao1", "retorno", [1, 2, 3], [1, 2, 3],
+    #                   dois_graficos=False, title2=None, ylabel2=None, primeiro_arg2=None, segundo_arg2=None,
+    #                   barra=False))
 
     # keyboard.add_hotkey('ctrl + shift + z', clicked_on_microphone)
     app.exec()
 
 
+grafico = uic.loadUi("graficos.ui")
