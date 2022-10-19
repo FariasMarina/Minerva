@@ -35,7 +35,7 @@ def umanoatras():
 
 
 def mostrar_cotacao(acao):
-    from testes._TESTE.ui_main import grafico
+    from ui_main import grafico
     cotacao = web.DataReader(f'{acao}', data_source='yahoo', start=umanoatras(), end=str(date.today()))
     displayhook(cotacao)
 
@@ -45,8 +45,34 @@ def mostrar_cotacao(acao):
     plt.grid(axis='y')
     plt.show()
 
+    df = cotacao
+
+    columns = [df.index.name] + [i for i in df.columns]
+    rows = [[i for i in row] for row in df.itertuples()]
+    print(columns, rows)
+
+    grafico.tableWidget.setRowCount(len(rows) + 1)
+    grafico.tableWidget.setColumnCount(len(columns))
+
+    grafico.tableWidget.setHorizontalHeaderLabels(columns)
+
+    count = 1
+    for i in rows:
+        count2 = 0
+        for j in i:
+            grafico.tableWidget.setItem(count, count2, QTableWidgetItem(f"{j}"))
+            count2 += 1
+        count += 1
+
+    grafico.tableWidget.horizontalHeader().setStretchLastSection(True)
+    grafico.tableWidget.horizontalHeader().setSectionResizeMode(
+        QHeaderView.Stretch)
+
+    grafico.show()
+
 
 def ver_carteira():
+    from ui_main import grafico
     carteira = pd.read_excel('Carteira.xlsx')
     tab_acoes = {}
 
