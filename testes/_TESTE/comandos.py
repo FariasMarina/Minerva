@@ -12,6 +12,8 @@ lista_comandos = {
                       'pesquise vídeos da *': func.pesquisar_youtube,
                       'pesquise vídeos do *': func.pesquisar_youtube,
 
+                      'desligar luz': func.desligar_luz,
+                      'ligar luz': func.ligar_luz,
 
                       'pesquise *': func.pesquisar_google,
 
@@ -73,5 +75,6 @@ lista_comandos = {
 
 
 
+                      '@ teste': 'teste', 
 }
 

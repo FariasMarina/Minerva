@@ -5,6 +5,16 @@ import requests
 import urllib.request
 import re
 import os
+from yeelight import Bulb
+def desligar_luz():
+    bulb = Bulb("192.168.0.12")
+    bulb.turn_off()
+    return "Luz desligada"
+
+def ligar_luz():
+    bulb = Bulb("192.168.0.12")
+    bulb.turn_on()
+    return "Luz ligada"
 
 
 
