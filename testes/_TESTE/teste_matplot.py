@@ -14,6 +14,11 @@ from datetime import date
 app = QApplication([])
 grafico = uic.loadUi("graficos.ui")
 
+
+# grafico.tab.setParent(None)
+tab = QtWidgets.QWidget()
+grafico.tabWidget.addTab(tab, "Tab 1")
+
 layout = QtWidgets.QVBoxLayout(grafico.tab)
 
 static_canvas = FigureCanvas(Figure(figsize=(7, 3)))
@@ -32,9 +37,18 @@ grafico._static_ax.set_title("A")
 grafico._static_ax.set_ylabel("A")
 grafico._static_ax.barh(t, t)
 
+# grafico.bar = grafico._static_ax.bar(2, 3)
+# grafico._static_ax.draw(renderer=None)
+#
+# if grafico.bar:
+
+
+
 
 grafico._static_ax2 = static_canvas2.figure.subplots()
 grafico._static_ax2.plot(t, t, color="b")
+
+
 
 
 
@@ -70,8 +84,6 @@ for i in rows:
 grafico.tableWidget.horizontalHeader().setStretchLastSection(True)
 grafico.tableWidget.horizontalHeader().setSectionResizeMode(
     QHeaderView.Stretch)
-
-layout.static_canvas.deleteLater()
 
 grafico.show()
 

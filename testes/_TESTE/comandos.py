@@ -75,6 +75,5 @@ lista_comandos = {
 
 
 
-                      '@ teste': 'teste', 
 }
 
