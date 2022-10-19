@@ -10,5 +10,4 @@ alpha-vantage
 pandas-datareader
 matplotlib
 keyboard
-keyboard
 openpyxl

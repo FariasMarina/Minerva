@@ -7,12 +7,12 @@ import re
 import os
 from yeelight import Bulb
 def desligar_luz():
-    bulb = Bulb("192.168.0.12")
+    bulb = Bulb("10.10.30.105")
     bulb.turn_off()
     return "Luz desligada"
 
 def ligar_luz():
-    bulb = Bulb("192.168.0.12")
+    bulb = Bulb("10.10.30.105")
     bulb.turn_on()
     return "Luz ligada"
 

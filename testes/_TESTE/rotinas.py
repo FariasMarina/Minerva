@@ -1,6 +1,12 @@
 
 
-def mostrar_patos():
+def joao():
     return [
-            'pesquise fotos de patos',
+            'fale joao',
+]
+
+
+def teste_05():
+    return [
+            'fale teste 05',
 ]

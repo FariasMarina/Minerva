@@ -26,27 +26,22 @@ def executar_rotina(nome_rotina):
     return "rotina finalizada"
 
 
-
-
-
-
 def fale(text):
     print(text)
     speech_config = speechsdk.SpeechConfig(subscription="9bc9a7005e8f4ab9b42c4ecc13d5680a",
-										   region="brazilsouth")
+                                           region="brazilsouth")
 
-    #In this sample we are using the default speaker
-    #Learn how to customize your speaker using SSML in Azure Cognitive Services Speech documentation
-	
+    # In this sample we are using the default speaker
+    # Learn how to customize your speaker using SSML in Azure Cognitive Services Speech documentation
+
     speech_config.speech_synthesis_language = 'pt-br'
     audio_config = AudioOutputConfig(use_default_speaker=True)
-    synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, 
-											  audio_config=audio_config)
+    synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config,
+                                              audio_config=audio_config)
 
     synthesizer.speak_text_async(text)
 
-
-    #synthesize_to_speaker()
+    # synthesize_to_speaker()
 
 
 def receber_variaveis(text):
@@ -62,6 +57,7 @@ def receber_audio():
         rec.adjust_for_ambient_noise(mic)
         print("Estou te ouvindo...")
         audio = rec.listen(mic)
+        print("OUVI")
         try:
             print("Trancrevendo...")
             frase = rec.recognize_google(audio, language="pt-BR")
