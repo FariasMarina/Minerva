@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 import urllib.request
 import re
-import os
+import os, sys, subprocess
 from yeelight import Bulb
 def desligar_luz():
     try:
@@ -190,15 +190,19 @@ def Desligar_pc():
 
 def Abrir_arquivo(comando):
     try:
-        try:
-            a = r'{}.exe'.format(comando)
-            os.startfile(a)
-            return f"{comando} aberto"
-        except:
-            os.startfile(comando)
-            return  "Arquivo aberto"
+        if sys.platform == "win32":
+            try:
+                a = r'{}.exe'.format(comando)
+                os.startfile(a)
+                return f"{comando} aberto"
+            except:
+                os.startfile(comando)
+                return "Arquivo aberto"
         else:
-            return "Caminho não encontrado"
+            opener = "open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, "/home/joilson/PycharmProjects/Minerva/minerva/funcoes/Carteira.xlsx"])
+        # else:
+        #     return "Caminho não encontrado"
     except:
         return 'Não foi possivel abrir o arquivo'
 

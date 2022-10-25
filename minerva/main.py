@@ -84,8 +84,11 @@ def run_minerva(input_microfone=False, input_texto=""):
             #Separo as palavras da chave da lista de comandos
             
             argumentos_comando = comando.split() #Separo as palavras do comando
-            if argumentos_comando[0] == "minerva":
-                argumentos_comando = argumentos_comando.pop(0) #Retiro a palavra Minerva
+            try:
+                if argumentos_comando[0] == "minerva":
+                    argumentos_comando = argumentos_comando.pop(0) #Retiro a palavra Minerva
+            except:
+                break
             contem_palavras_necessarias = 0
             palavras_necessarias = len(argumentos_chave) - argumentos_chave.count("*")
 
