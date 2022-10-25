@@ -11,3 +11,4 @@ pandas-datareader
 matplotlib
 keyboard
 openpyxl
+yeelight
